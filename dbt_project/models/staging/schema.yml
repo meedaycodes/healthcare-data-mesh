@@ -1,0 +1,109 @@
+version: 2
+
+models:
+  - name: stg_patients
+    description: "Staging model that flattens FHIR Patient resources from raw JSON bundles"
+    meta:
+      owner: "data-engineering"
+      data_classification: "synthetic-phi"
+
+    columns:
+      - name: patient_id
+        description: "Unique FHIR patient identifier (UUID)"
+        tests:
+          - unique
+          - not_null
+
+      - name: patient_full_url
+        description: "Full URN reference to the patient resource"
+
+      - name: gender
+        description: "Administrative gender (male, female, other, unknown)"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['male', 'female', 'other', 'unknown']
+
+      - name: birth_date
+        description: "Patient date of birth"
+        tests:
+          - not_null
+
+      - name: family_name
+        description: "Family name (surname)"
+
+      - name: given_name
+        description: "Given name (first name)"
+
+      - name: middle_name
+        description: "Middle name or second given name"
+
+      - name: address_line
+        description: "Street address"
+
+      - name: city
+        description: "City"
+
+      - name: state
+        description: "State or province"
+
+      - name: postal_code
+        description: "Postal or ZIP code"
+
+      - name: country
+        description: "Country code"
+
+      - name: latitude
+        description: "Geographic latitude of patient address"
+
+      - name: longitude
+        description: "Geographic longitude of patient address"
+
+      - name: phone_number
+        description: "Primary phone number"
+
+      - name: marital_status
+        description: "Marital status (e.g., Never Married, Married, Divorced)"
+
+      - name: primary_language
+        description: "Primary language spoken"
+
+      - name: race
+        description: "Race category per US Core FHIR profile"
+
+      - name: ethnicity
+        description: "Ethnicity category per US Core FHIR profile"
+
+      - name: birth_sex
+        description: "Sex assigned at birth (M, F)"
+
+      - name: mothers_maiden_name
+        description: "Mother's maiden name"
+
+      - name: birth_city
+        description: "City of birth"
+
+      - name: birth_state
+        description: "State of birth"
+
+      - name: multiple_birth_order
+        description: "Birth order for multiple births (1, 2, 3, etc.)"
+
+      - name: quality_adjusted_life_years
+        description: "Synthea-generated QALY metric"
+
+      - name: disability_adjusted_life_years
+        description: "Synthea-generated DALY metric"
+
+      - name: file_path
+        description: "Source file path in MinIO"
+        tests:
+          - not_null
+
+      - name: ingestion_timestamp
+        description: "When the source file was ingested into MinIO"
+
+      - name: dbt_processed_at
+        description: "When this record was processed by dbt"
+        tests:
+          - not_null

@@ -18,7 +18,8 @@ jobs:
       - name: Install dbt-trino
         run: pip install dbt-trino
 
-      - name: dbt Debug & Compile
+      - name: dbt Parse & Compile
         run: |
           cd dbt_project
+          dbt parse # Validates model definitions
           dbt compile # Checks if SQL is valid without running it

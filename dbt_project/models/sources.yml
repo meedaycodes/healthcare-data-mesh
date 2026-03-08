@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: landing
+    description: "Raw FHIR data ingested from Synthea into MinIO landing-zone bucket"
+    database: iceberg
+    schema: landing
+    tables:
+      - name: fhir_bundles
+        description: "Raw FHIR Bundle JSON files containing patient records, encounters, observations, and other clinical data"
+        columns:
+          - name: file_path
+            description: "S3 path to the original FHIR JSON file"
+          - name: data
+            description: "Complete FHIR Bundle JSON as text/varchar"
+          - name: ingestion_timestamp
+            description: "Timestamp when the file was ingested into MinIO"
+
+        meta:
+          data_standard: "HL7 FHIR R4"
+          contains_phi: false
+          data_source: "Synthea synthetic data generator"

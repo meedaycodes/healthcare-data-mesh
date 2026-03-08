@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/dbt_project.json
+
 name: 'healthcare_mesh'
 version: '1.0.0'
 config-version: 2
@@ -10,12 +12,34 @@ analysis-paths: ["analyses"]
 test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
 
+target-path: "target"
 clean-targets:
   - "target"
   - "dbt_packages"
+  - "logs"
+
+# Require SSL certificate validation for security
+flags:
+  require_certificate_validation: false  # Set to true when using SSL
+
+# Query comments for better observability in Trino
+query-comment:
+  comment: "dbt:{{ node.unique_id }}"
+  append: true
 
 models:
   healthcare_mesh:
-    # This applies to all models in the project
+    # Default materialization for all models
     +materialized: table
+
+    # Staging models
+    staging:
+      +materialized: view
+      +tags: ["staging", "daily"]
+
+    # Marts (future - for business logic)
+    marts:
+      +materialized: table
+      +tags: ["marts", "production"]
