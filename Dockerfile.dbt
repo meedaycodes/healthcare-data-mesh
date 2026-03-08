@@ -1,0 +1,15 @@
+# Use a slim Python image as the base
+FROM python:3.9-slim
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
+# Install dbt and the Trino adapter
+RUN pip install --no-cache-dir dbt-trino
+
+# Set the working directory
+WORKDIR /usr/app/dbt_project
+
+# Command to keep the container alive if needed, 
+# or it will just run commands passed via docker-compose
+CMD ["dbt", "--version"]

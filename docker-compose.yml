@@ -1,0 +1,167 @@
+networks:
+  healthcare_mesh_net:
+    driver: bridge
+
+services:
+  # --- 1. Storage Layer (S3 Replacement) ---
+  minio:
+    image: minio/minio
+    container_name: healthcare-minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password
+    command: server /data --console-address ":9001"
+    networks:
+      - healthcare_mesh_net
+
+  # --- 2. Catalog Layer (Metadata & Versioning) ---
+  nessie:
+    image: projectnessie/nessie:latest
+    container_name: healthcare_nessie
+    environment:
+      - QUARKUS_OTEL_SDK_DISABLED=true
+    ports:
+      - "19120:19120"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:19120/api/v2/config"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - healthcare_mesh_net
+
+  # --- 3. Compute Layer (SQL Engine) ---
+  trino:
+    image: trinodb/trino:latest
+    container_name: healthcare_trino
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./trino/catalog:/etc/trino/catalog
+    depends_on:
+      nessie:
+        condition: service_healthy
+      minio:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/v1/info"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+    networks:
+      - healthcare_mesh_net
+
+  # --- 4. Orchestration Metadata (Postgres) ---
+  postgres:
+    image: postgres:13
+    container_name: airflow_db
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - healthcare_mesh_net
+
+  # --- 5. Airflow Init (The Janitor) ---
+  airflow-init:
+    image: apache/airflow:2.7.1
+    container_name: healthcare_airflow_init
+    depends_on:
+      - postgres
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+    command: >
+      bash -c "airflow db init &&
+      airflow users create --username admin --password admin --firstname Air --lastname Flow --role Admin --email admin@example.com"
+    networks:
+      - healthcare_mesh_net
+
+  # --- 6. Airflow (The Conductor) ---
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: healthcare_airflow_web
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+      trino:
+        condition: service_healthy
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__FERNET_KEY=fbS5v_9By8CXYQZ9_9tD1T6Y-P6u6_9tD1T6Y-P6u68=
+      - AIRFLOW__WEBSERVER__SECRET_KEY=healthcare_secret_123
+    user: "50000:0" # Switched to default airflow user for better security/stability
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./dbt_project:/opt/airflow/dbt_project
+      - ./synthea_output:/opt/airflow/synthea_output
+    ports:
+      - "8081:8080"
+    command: webserver
+    networks:
+      - healthcare_mesh_net
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: healthcare_airflow_scheduler
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__FERNET_KEY=fbS5v_9By8CXYQZ9_9tD1T6Y-P6u6_9tD1T6Y-P6u68=
+      - AIRFLOW__WEBSERVER__SECRET_KEY=healthcare_secret_123
+    user: "50000:0"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./dbt_project:/opt/airflow/dbt_project
+      - ./synthea_output:/opt/airflow/synthea_output
+    command: scheduler
+    networks:
+      - healthcare_mesh_net
+
+  # --- 7. dbt (Transformation CLI) ---
+  dbt:
+    container_name: healthcare_dbt
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM python:3.9-slim
+        RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+        RUN pip install --no-cache-dir dbt-trino
+        WORKDIR /usr/app/dbt_project
+        CMD ["dbt", "--version"]
+    volumes:
+      - ./dbt_project:/usr/app/dbt_project
+      - ~/.dbt:/root/.dbt
+    environment:
+      - DBT_PROFILES_DIR=/root/.dbt
+    depends_on:
+      trino:
+        condition: service_healthy
+    networks:
+      - healthcare_mesh_net
+
+  # --- 8. Synthea Generator ---
+  synthea-gen:
+    build:
+      context: .
+      dockerfile: Dockerfile.synthea
+    container_name: healthcare_synthea
+    volumes:
+      - ./synthea_output:/app/output
+    networks:
+      - healthcare_mesh_net

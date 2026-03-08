@@ -1,0 +1,4 @@
+synthea_output/
+.env
+target/
+dbt_packages/

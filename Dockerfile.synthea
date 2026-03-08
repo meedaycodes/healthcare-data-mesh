@@ -1,0 +1,26 @@
+# Step 1: Use Eclipse Temurin (LTS) - the modern standard for Java containers
+FROM eclipse-temurin:11-jre-focal
+
+# Step 2: Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    python3 \
+    python3-pip \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Step 3: Install AWS CLI (to move data to MinIO)
+RUN pip3 install awscli
+
+# Step 4: Set the working directory
+WORKDIR /app
+
+# Step 5: Download the stable Synthea JAR
+RUN curl -L https://github.com/synthetichealth/synthea/releases/download/v3.2.0/synthea-with-dependencies.jar -o synthea.jar
+
+# Step 6: Create output directory
+RUN mkdir -p ./output
+
+# Step 7: Define the Entrypoint
+# We add --exporter.baseDirectory to ensure files land where we expect
+CMD ["java", "-jar", "synthea.jar", "-p", "20", "--exporter.fhir.export=true", "--exporter.baseDirectory=./output/"]
