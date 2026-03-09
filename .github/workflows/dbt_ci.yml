@@ -7,20 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    # Run a Trino container for dbt connection
-    services:
-      trino:
-        image: trinodb/trino:latest
-        ports:
-          - 8080:8080
-        # Wait for Trino to be healthy
-        options: >-
-          --health-cmd "curl -f http://localhost:8080/v1/info || exit 1"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 10
-
     steps:
       - uses: actions/checkout@v3
 
@@ -31,6 +17,32 @@ jobs:
 
       - name: Install dbt-trino
         run: pip install dbt-trino
+
+      - name: Start Mock Trino with Iceberg Catalog
+        run: |
+          # Create fake catalog directory
+          mkdir -p /tmp/trino-catalog
+          # Create an iceberg catalog that actually uses the memory connector
+          echo "connector.name=memory" > /tmp/trino-catalog/iceberg.properties
+          
+          # Start Trino container with custom catalogs
+          docker run -d --name trino -p 8080:8080 \
+            -v /tmp/trino-catalog:/etc/trino/catalog:ro \
+            trinodb/trino:latest
+            
+          # Wait for Trino to start
+          until curl -s http://localhost:8080/v1/info; do
+            echo "Waiting for Trino to be ready..."
+            sleep 3
+          done
+
+      - name: Setup Mock Schemas
+        run: |
+          # Download Trino CLI
+          curl -sLO https://repo1.maven.org/maven2/io/trino/trino-cli/435/trino-cli-435-executable.jar
+          chmod +x trino-cli-435-executable.jar
+          # Create required mock schema for dbt to compile against
+          ./trino-cli-435-executable.jar --server localhost:8080 --execute "CREATE SCHEMA IF NOT EXISTS iceberg.landing;"
 
       - name: Configure dbt profile
         run: |
