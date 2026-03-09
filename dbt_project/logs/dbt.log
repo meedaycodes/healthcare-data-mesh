@@ -190,3 +190,1319 @@ https://docs.getdbt.com/docs/configure-your-profile
 [0m15:28:20.590466 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff872efc40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86182b20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff85dd6e20>]}
 [0m15:28:20.590686 [debug] [MainThread]: Flushing usage events
 [0m15:28:21.080717 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:24:06.600706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10951b050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1095cc290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1095ccb10>]}
+
+
+============================== 21:24:06.603010 | b2971a90-e7d1-40ad-a2ac-cb5c43b216bc ==============================
+[0m21:24:06.603010 [info ] [MainThread]: Running with dbt=1.11.7
+[0m21:24:06.603266 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'debug': 'False', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'empty': 'None', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'printer_width': '80', 'log_format': 'default', 'use_experimental_parser': 'False', 'quiet': 'False', 'indirect_selection': 'eager', 'fail_fast': 'False', 'cache_selected_only': 'False', 'log_cache_events': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True'}
+[0m21:24:06.609994 [info ] [MainThread]: dbt version: 1.11.7
+[0m21:24:06.610144 [info ] [MainThread]: python version: 3.11.1
+[0m21:24:06.610260 [info ] [MainThread]: python path: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11
+[0m21:24:06.610361 [info ] [MainThread]: os info: macOS-26.3-arm64-arm-64bit
+[0m21:24:07.157645 [info ] [MainThread]: Using profiles dir at /Users/habeebaramideshomuyiwa/.dbt
+[0m21:24:07.157917 [info ] [MainThread]: Using profiles.yml file at /Users/habeebaramideshomuyiwa/.dbt/profiles.yml
+[0m21:24:07.158049 [info ] [MainThread]: Using dbt_project.yml file at /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/dbt_project.yml
+[0m21:24:07.158167 [info ] [MainThread]: adapter type: trino
+[0m21:24:07.158273 [info ] [MainThread]: adapter version: 1.10.1
+[0m21:24:07.205654 [info ] [MainThread]: Configuration:
+[0m21:24:07.205868 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:24:07.205980 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m21:24:07.206063 [info ] [MainThread]: Required dependencies:
+[0m21:24:07.206205 [debug] [MainThread]: Executing "git --help"
+[0m21:24:07.218316 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:24:07.218688 [debug] [MainThread]: STDERR: "b''"
+[0m21:24:07.218805 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:24:07.218926 [info ] [MainThread]: Connection:
+[0m21:24:07.219065 [info ] [MainThread]:   host: localhost
+[0m21:24:07.219160 [info ] [MainThread]:   port: 8080
+[0m21:24:07.219245 [info ] [MainThread]:   user: admin
+[0m21:24:07.219331 [info ] [MainThread]:   database: iceberg
+[0m21:24:07.219414 [info ] [MainThread]:   schema: landing
+[0m21:24:07.219499 [info ] [MainThread]:   cert: None
+[0m21:24:07.219583 [info ] [MainThread]:   prepared_statements_enabled: True
+[0m21:24:07.219821 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m21:24:07.257851 [debug] [MainThread]: Acquiring new trino connection 'debug'
+[0m21:24:07.287088 [debug] [MainThread]: Using trino connection "debug"
+[0m21:24:07.287277 [debug] [MainThread]: On debug: select 1 as id
+[0m21:24:07.287379 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:24:07.287474 [warn ] [MainThread]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m21:24:07.287685 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': 'b2971a90-e7d1-40ad-a2ac-cb5c43b216bc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1099ecb10>]}
+[0m21:24:07.395052 [debug] [MainThread]: SQL status: SUCCESS in 0.108 seconds
+[0m21:24:07.395656 [debug] [MainThread]: On debug: Close
+[0m21:24:07.395872 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m21:24:07.396033 [info ] [MainThread]: [32mAll checks passed![0m
+[0m21:24:07.420897 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 0.85773355, "process_in_blocks": "0", "process_kernel_time": 0.181845, "process_mem_max_rss": "125304832", "process_out_blocks": "0", "process_user_time": 0.70887}
+[0m21:24:07.421341 [debug] [MainThread]: Command `dbt debug` succeeded at 21:24:07.421274 after 0.86 seconds
+[0m21:24:07.421550 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:24:07.421976 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x100c79090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1095a4a10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a0017d0>]}
+[0m21:24:07.422192 [debug] [MainThread]: Flushing usage events
+[0m21:24:07.857145 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:24:41.225320 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a9134d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a4bb610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a9b5610>]}
+
+
+============================== 21:24:41.227802 | bd1b1ad0-60ed-46ab-9e85-f56518660f66 ==============================
+[0m21:24:41.227802 [info ] [MainThread]: Running with dbt=1.11.7
+[0m21:24:41.228092 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'debug': 'False', 'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'log_cache_events': 'False', 'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'quiet': 'False', 'target_path': 'None', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'write_json': 'True', 'introspect': 'True', 'partial_parse': 'True', 'static_parser': 'True', 'log_format': 'default', 'no_print': 'None', 'use_colors': 'True', 'version_check': 'True', 'invocation_command': 'dbt run --select stg_patients', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'False'}
+[0m21:24:41.316291 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'bd1b1ad0-60ed-46ab-9e85-f56518660f66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a927cd0>]}
+[0m21:24:41.341524 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'bd1b1ad0-60ed-46ab-9e85-f56518660f66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106af8a90>]}
+[0m21:24:41.341837 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m21:24:41.384020 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m21:24:41.384370 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m21:24:41.384524 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'bd1b1ad0-60ed-46ab-9e85-f56518660f66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a997150>]}
+[0m21:24:41.803851 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on 'stg_patients' in
+package 'healthcare_mesh' (models/schema.yml). Arguments to generic tests should
+be nested under the `arguments` property.
+[0m21:24:41.804110 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'bd1b1ad0-60ed-46ab-9e85-f56518660f66', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11bd58890>]}
+[0m21:24:41.885097 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'bd1b1ad0-60ed-46ab-9e85-f56518660f66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11be63450>]}
+[0m21:24:41.916333 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m21:24:41.917395 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m21:24:41.922900 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'bd1b1ad0-60ed-46ab-9e85-f56518660f66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11bf6b010>]}
+[0m21:24:41.923117 [info ] [MainThread]: Found 1 model, 6 data tests, 1 source, 484 macros
+[0m21:24:41.923249 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'bd1b1ad0-60ed-46ab-9e85-f56518660f66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b983e90>]}
+[0m21:24:41.923870 [info ] [MainThread]: 
+[0m21:24:41.923996 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:24:41.924093 [info ] [MainThread]: 
+[0m21:24:41.924252 [debug] [MainThread]: Acquiring new trino connection 'master'
+[0m21:24:41.924573 [debug] [ThreadPool]: Acquiring new trino connection 'list_iceberg'
+[0m21:24:41.981538 [debug] [ThreadPool]: Using trino connection "list_iceberg"
+[0m21:24:41.981727 [debug] [ThreadPool]: On list_iceberg: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "healthcare_mesh", "target_name": "dev", "connection_name": "list_iceberg"} */
+
+    select schema_name
+    from "iceberg".INFORMATION_SCHEMA.schemata
+[0m21:24:41.981825 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:24:41.981909 [warn ] [ThreadPool]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m21:24:41.982062 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': 'bd1b1ad0-60ed-46ab-9e85-f56518660f66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c05b910>]}
+[0m21:24:42.184144 [debug] [ThreadPool]: SQL status: SUCCESS in 0.202 seconds
+[0m21:24:42.184904 [debug] [ThreadPool]: On list_iceberg: Close
+[0m21:24:42.185570 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_iceberg, now list_iceberg_landing)
+[0m21:24:42.192459 [debug] [ThreadPool]: Using trino connection "list_iceberg_landing"
+[0m21:24:42.192715 [debug] [ThreadPool]: On list_iceberg_landing: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "healthcare_mesh", "target_name": "dev", "connection_name": "list_iceberg_landing"} */
+select
+      t.table_catalog as database,
+      t.table_name as name,
+      t.table_schema as schema,
+      case when mv.name is not null then 'materialized_view'
+           when t.table_type = 'BASE TABLE' then 'table'
+           when t.table_type = 'VIEW' then 'view'
+           else t.table_type
+      end as table_type
+    from "iceberg".INFORMATION_SCHEMA.tables t
+    left join (
+            select * from system.metadata.materialized_views
+            where catalog_name = 'iceberg'
+              and schema_name = 'landing') mv
+          on mv.catalog_name = t.table_catalog and mv.schema_name = t.table_schema and mv.name = t.table_name
+    where t.table_schema = 'landing'
+[0m21:24:42.192855 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m21:24:42.443944 [debug] [ThreadPool]: SQL status: SUCCESS in 0.251 seconds
+[0m21:24:42.444704 [debug] [ThreadPool]: On list_iceberg_landing: ROLLBACK
+[0m21:24:42.444847 [debug] [ThreadPool]: On list_iceberg_landing: Close
+[0m21:24:42.445339 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'bd1b1ad0-60ed-46ab-9e85-f56518660f66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11bc5a8d0>]}
+[0m21:24:42.445564 [debug] [MainThread]: On master: COMMIT
+[0m21:24:42.447022 [debug] [Thread-1 (]: Began running node model.healthcare_mesh.stg_patients
+[0m21:24:42.447266 [info ] [Thread-1 (]: 1 of 1 START sql table model landing.stg_patients .............................. [RUN]
+[0m21:24:42.447455 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_iceberg_landing, now model.healthcare_mesh.stg_patients)
+[0m21:24:42.447733 [debug] [Thread-1 (]: Began compiling node model.healthcare_mesh.stg_patients
+[0m21:24:42.449555 [debug] [Thread-1 (]: Writing injected SQL for node "model.healthcare_mesh.stg_patients"
+[0m21:24:42.450236 [debug] [Thread-1 (]: Began executing node model.healthcare_mesh.stg_patients
+[0m21:24:42.474559 [debug] [Thread-1 (]: Writing runtime sql for node "model.healthcare_mesh.stg_patients"
+[0m21:24:42.479138 [debug] [Thread-1 (]: Using trino connection "model.healthcare_mesh.stg_patients"
+[0m21:24:42.479372 [debug] [Thread-1 (]: On model.healthcare_mesh.stg_patients: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "healthcare_mesh", "target_name": "dev", "node_id": "model.healthcare_mesh.stg_patients"} */
+
+  
+    
+
+    create table "iceberg"."landing"."stg_patients"
+      
+      
+    as (
+      
+
+WITH fhir_raw AS (
+  SELECT
+    file_path,
+    json_parse(data) AS bundle_json,
+    ingestion_timestamp
+  FROM "iceberg"."landing"."fhir_bundles"
+),
+
+patient_entries AS (
+  SELECT
+    file_path,
+    ingestion_timestamp,
+    entry_json
+  FROM fhir_raw
+  CROSS JOIN UNNEST(
+    CAST(json_extract(bundle_json, '$.entry') AS ARRAY(JSON))
+  ) AS t(entry_json)
+  WHERE json_extract_scalar(entry_json, '$.resource.resourceType') = 'Patient'
+),
+
+flattened_patients AS (
+  SELECT
+    -- Primary identifiers
+    json_extract_scalar(entry_json, '$.resource.id') AS patient_id,
+    json_extract_scalar(entry_json, '$.fullUrl') AS patient_full_url,
+
+    -- Demographics
+    json_extract_scalar(entry_json, '$.resource.gender') AS gender,
+    CAST(json_extract_scalar(entry_json, '$.resource.birthDate') AS DATE) AS birth_date,
+
+    -- Name (extracting first official name)
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.name[0]') AS JSON),
+      '$.family'
+    ) AS family_name,
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.name[0]') AS JSON),
+      '$.given[0]'
+    ) AS given_name,
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.name[0]') AS JSON),
+      '$.given[1]'
+    ) AS middle_name,
+
+    -- Address (extracting first address)
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.address[0]') AS JSON),
+      '$.line[0]'
+    ) AS address_line,
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.address[0]') AS JSON),
+      '$.city'
+    ) AS city,
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.address[0]') AS JSON),
+      '$.state'
+    ) AS state,
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.address[0]') AS JSON),
+      '$.postalCode'
+    ) AS postal_code,
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.address[0]') AS JSON),
+      '$.country'
+    ) AS country,
+
+    -- Geolocation
+    CAST(json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.address[0].extension[0].extension[0]') AS JSON),
+      '$.valueDecimal'
+    ) AS DOUBLE) AS latitude,
+    CAST(json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.address[0].extension[0].extension[1]') AS JSON),
+      '$.valueDecimal'
+    ) AS DOUBLE) AS longitude,
+
+    -- Contact
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.telecom[0]') AS JSON),
+      '$.value'
+    ) AS phone_number,
+
+    -- Marital Status
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.maritalStatus') AS JSON),
+      '$.text'
+    ) AS marital_status,
+
+    -- Language
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.communication[0].language') AS JSON),
+      '$.text'
+    ) AS primary_language,
+
+    -- Race (from US Core extension - index 0)
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.extension[0].extension[1]') AS JSON),
+      '$.valueString'
+    ) AS race,
+
+    -- Ethnicity (from US Core extension - index 1)
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.extension[1].extension[1]') AS JSON),
+      '$.valueString'
+    ) AS ethnicity,
+
+    -- Birth Sex (from US Core extension - index 3)
+    json_extract_scalar(
+      entry_json,
+      '$.resource.extension[3].valueCode'
+    ) AS birth_sex,
+
+    -- Mother's Maiden Name (extension index 2)
+    json_extract_scalar(
+      entry_json,
+      '$.resource.extension[2].valueString'
+    ) AS mothers_maiden_name,
+
+    -- Birth Place (extension index 4)
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.extension[4].valueAddress') AS JSON),
+      '$.city'
+    ) AS birth_city,
+    json_extract_scalar(
+      CAST(json_extract(entry_json, '$.resource.extension[4].valueAddress') AS JSON),
+      '$.state'
+    ) AS birth_state,
+
+    -- Multiple Birth
+    CAST(json_extract_scalar(entry_json, '$.resource.multipleBirthInteger') AS INTEGER) AS multiple_birth_order,
+
+    -- Quality metrics (Synthea-specific - extension indices 5 and 6)
+    CAST(json_extract_scalar(
+      entry_json,
+      '$.resource.extension[6].valueDecimal'
+    ) AS DOUBLE) AS quality_adjusted_life_years,
+    CAST(json_extract_scalar(
+      entry_json,
+      '$.resource.extension[5].valueDecimal'
+    ) AS DOUBLE) AS disability_adjusted_life_years,
+
+    -- Metadata
+    file_path,
+    ingestion_timestamp,
+    CURRENT_TIMESTAMP AS dbt_processed_at
+
+  FROM patient_entries
+)
+
+SELECT * FROM flattened_patients
+    )
+[0m21:24:42.479583 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:24:43.519331 [debug] [Thread-1 (]: SQL status: CREATE TABLE (44 rows) in 1.040 seconds
+[0m21:24:43.528037 [debug] [Thread-1 (]: On model.healthcare_mesh.stg_patients: ROLLBACK
+[0m21:24:43.528282 [debug] [Thread-1 (]: On model.healthcare_mesh.stg_patients: Close
+[0m21:24:43.529397 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'bd1b1ad0-60ed-46ab-9e85-f56518660f66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11aec5950>]}
+[0m21:24:43.529709 [info ] [Thread-1 (]: 1 of 1 OK created sql table model landing.stg_patients ......................... [[32mCREATE TABLE (44 rows)[0m in 1.08s]
+[0m21:24:43.529932 [debug] [Thread-1 (]: Finished running node model.healthcare_mesh.stg_patients
+[0m21:24:43.530723 [debug] [MainThread]: On master: COMMIT
+[0m21:24:43.530910 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:24:43.531022 [debug] [MainThread]: Connection 'model.healthcare_mesh.stg_patients' was properly closed.
+[0m21:24:43.531134 [info ] [MainThread]: 
+[0m21:24:43.531252 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 1.61 seconds (1.61s).
+[0m21:24:43.531502 [debug] [MainThread]: Command end result
+[0m21:24:43.543240 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m21:24:43.545206 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m21:24:43.548118 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/run_results.json
+[0m21:24:43.548266 [info ] [MainThread]: 
+[0m21:24:43.548430 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:24:43.548573 [info ] [MainThread]: 
+[0m21:24:43.548770 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m21:24:43.549126 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m21:24:43.553428 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.3628907, "process_in_blocks": "0", "process_kernel_time": 0.209828, "process_mem_max_rss": "140132352", "process_out_blocks": "0", "process_user_time": 1.290355}
+[0m21:24:43.553684 [debug] [MainThread]: Command `dbt run` succeeded at 21:24:43.553643 after 2.36 seconds
+[0m21:24:43.553859 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104bdd150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104b3ce50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104b3cdd0>]}
+[0m21:24:43.554005 [debug] [MainThread]: Flushing usage events
+[0m21:24:44.033579 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:26:09.222482 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cd976d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cd96190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cdb5390>]}
+
+
+============================== 21:26:09.224973 | 73648045-a2d1-4666-90f0-6bc3b77101d6 ==============================
+[0m21:26:09.224973 [info ] [MainThread]: Running with dbt=1.11.7
+[0m21:26:09.225230 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt test --select stg_patients', 'log_cache_events': 'False', 'target_path': 'None', 'printer_width': '80', 'no_print': 'None', 'empty': 'None', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'debug': 'False', 'version_check': 'True', 'log_format': 'default', 'use_colors': 'True', 'warn_error': 'None', 'indirect_selection': 'eager', 'write_json': 'True', 'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'cache_selected_only': 'False', 'static_parser': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'introspect': 'True', 'partial_parse': 'True', 'fail_fast': 'False'}
+[0m21:26:09.317245 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '73648045-a2d1-4666-90f0-6bc3b77101d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cd13690>]}
+[0m21:26:09.344454 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '73648045-a2d1-4666-90f0-6bc3b77101d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1082f2e10>]}
+[0m21:26:09.344822 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m21:26:09.387750 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m21:26:09.439261 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m21:26:09.439557 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m21:26:09.439691 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m21:26:09.456242 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '73648045-a2d1-4666-90f0-6bc3b77101d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d32c350>]}
+[0m21:26:09.486743 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m21:26:09.487854 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m21:26:09.496496 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '73648045-a2d1-4666-90f0-6bc3b77101d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d7d7f10>]}
+[0m21:26:09.496774 [info ] [MainThread]: Found 1 model, 6 data tests, 1 source, 484 macros
+[0m21:26:09.496939 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '73648045-a2d1-4666-90f0-6bc3b77101d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cff2750>]}
+[0m21:26:09.497938 [info ] [MainThread]: 
+[0m21:26:09.498114 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:26:09.498216 [info ] [MainThread]: 
+[0m21:26:09.498429 [debug] [MainThread]: Acquiring new trino connection 'master'
+[0m21:26:09.498824 [debug] [ThreadPool]: Acquiring new trino connection 'list_iceberg_landing'
+[0m21:26:09.552763 [debug] [ThreadPool]: Using trino connection "list_iceberg_landing"
+[0m21:26:09.552965 [debug] [ThreadPool]: On list_iceberg_landing: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "healthcare_mesh", "target_name": "dev", "connection_name": "list_iceberg_landing"} */
+select
+      t.table_catalog as database,
+      t.table_name as name,
+      t.table_schema as schema,
+      case when mv.name is not null then 'materialized_view'
+           when t.table_type = 'BASE TABLE' then 'table'
+           when t.table_type = 'VIEW' then 'view'
+           else t.table_type
+      end as table_type
+    from "iceberg".INFORMATION_SCHEMA.tables t
+    left join (
+            select * from system.metadata.materialized_views
+            where catalog_name = 'iceberg'
+              and schema_name = 'landing') mv
+          on mv.catalog_name = t.table_catalog and mv.schema_name = t.table_schema and mv.name = t.table_name
+    where t.table_schema = 'landing'
+[0m21:26:09.553073 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:26:09.553160 [warn ] [ThreadPool]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m21:26:09.553326 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': '73648045-a2d1-4666-90f0-6bc3b77101d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d9cc290>]}
+[0m21:26:09.751718 [debug] [ThreadPool]: SQL status: SUCCESS in 0.199 seconds
+[0m21:26:09.752472 [debug] [ThreadPool]: On list_iceberg_landing: ROLLBACK
+[0m21:26:09.752616 [debug] [ThreadPool]: On list_iceberg_landing: Close
+[0m21:26:09.753227 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '73648045-a2d1-4666-90f0-6bc3b77101d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d56ef50>]}
+[0m21:26:09.753465 [debug] [MainThread]: On master: COMMIT
+[0m21:26:09.755076 [debug] [Thread-1 (]: Began running node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m21:26:09.755254 [debug] [Thread-2 (]: Began running node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m21:26:09.755391 [debug] [Thread-3 (]: Began running node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m21:26:09.755526 [debug] [Thread-4 (]: Began running node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m21:26:09.755662 [info ] [Thread-1 (]: 1 of 6 START test accepted_values_stg_patients_gender__male__female__other__unknown  [RUN]
+[0m21:26:09.755927 [info ] [Thread-2 (]: 2 of 6 START test not_null_stg_patients_birth_date ............................. [RUN]
+[0m21:26:09.756136 [info ] [Thread-3 (]: 3 of 6 START test not_null_stg_patients_dbt_processed_at ....................... [RUN]
+[0m21:26:09.756320 [info ] [Thread-4 (]: 4 of 6 START test not_null_stg_patients_file_path .............................. [RUN]
+[0m21:26:09.756528 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_iceberg_landing, now test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be)
+[0m21:26:09.756728 [debug] [Thread-2 (]: Acquiring new trino connection 'test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8'
+[0m21:26:09.756904 [debug] [Thread-3 (]: Acquiring new trino connection 'test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b'
+[0m21:26:09.757065 [debug] [Thread-4 (]: Acquiring new trino connection 'test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11'
+[0m21:26:09.757195 [debug] [Thread-1 (]: Began compiling node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m21:26:09.757325 [debug] [Thread-2 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m21:26:09.757444 [debug] [Thread-3 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m21:26:09.757556 [debug] [Thread-4 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m21:26:09.762398 [debug] [Thread-1 (]: Writing injected SQL for node "test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be"
+[0m21:26:09.765426 [debug] [Thread-2 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8"
+[0m21:26:09.766903 [debug] [Thread-3 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b"
+[0m21:26:09.768755 [debug] [Thread-4 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11"
+[0m21:26:09.769313 [debug] [Thread-1 (]: Began executing node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m21:26:09.769623 [debug] [Thread-2 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m21:26:09.775092 [debug] [Thread-3 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m21:26:09.779308 [debug] [Thread-1 (]: Writing runtime sql for node "test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be"
+[0m21:26:09.779518 [debug] [Thread-4 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m21:26:09.781063 [debug] [Thread-2 (]: Writing runtime sql for node "test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8"
+[0m21:26:09.782973 [debug] [Thread-3 (]: Writing runtime sql for node "test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b"
+[0m21:26:09.784356 [debug] [Thread-4 (]: Writing runtime sql for node "test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11"
+[0m21:26:09.785504 [debug] [Thread-1 (]: Using trino connection "test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be"
+[0m21:26:09.786244 [debug] [Thread-2 (]: Using trino connection "test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8"
+[0m21:26:09.786750 [debug] [Thread-3 (]: Using trino connection "test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b"
+[0m21:26:09.786894 [debug] [Thread-1 (]: On test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "healthcare_mesh", "target_name": "dev", "node_id": "test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        gender as value_field,
+        count(*) as n_records
+
+    from "iceberg"."landing"."stg_patients"
+    group by gender
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'male','female','other','unknown'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:26:09.787424 [debug] [Thread-4 (]: Using trino connection "test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11"
+[0m21:26:09.787552 [debug] [Thread-2 (]: On test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "healthcare_mesh", "target_name": "dev", "node_id": "test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select birth_date
+from "iceberg"."landing"."stg_patients"
+where birth_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:26:09.787701 [debug] [Thread-3 (]: On test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "healthcare_mesh", "target_name": "dev", "node_id": "test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select dbt_processed_at
+from "iceberg"."landing"."stg_patients"
+where dbt_processed_at is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:26:09.787839 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:26:09.787967 [debug] [Thread-4 (]: On test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "healthcare_mesh", "target_name": "dev", "node_id": "test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select file_path
+from "iceberg"."landing"."stg_patients"
+where file_path is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:26:09.788088 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m21:26:09.788202 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m21:26:09.788813 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m21:26:09.984778 [debug] [Thread-2 (]: SQL status: SUCCESS in 0.197 seconds
+[0m21:26:09.985588 [debug] [Thread-3 (]: SQL status: SUCCESS in 0.197 seconds
+[0m21:26:09.988216 [debug] [Thread-2 (]: On test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8: ROLLBACK
+[0m21:26:09.989769 [debug] [Thread-3 (]: On test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b: ROLLBACK
+[0m21:26:09.990046 [debug] [Thread-2 (]: On test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8: Close
+[0m21:26:09.990209 [debug] [Thread-3 (]: On test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b: Close
+[0m21:26:09.990614 [info ] [Thread-2 (]: 2 of 6 PASS not_null_stg_patients_birth_date ................................... [[32mPASS[0m in 0.23s]
+[0m21:26:09.991024 [debug] [Thread-4 (]: SQL status: SUCCESS in 0.202 seconds
+[0m21:26:09.991268 [info ] [Thread-3 (]: 3 of 6 PASS not_null_stg_patients_dbt_processed_at ............................. [[32mPASS[0m in 0.23s]
+[0m21:26:09.991476 [debug] [Thread-2 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m21:26:09.992127 [debug] [Thread-4 (]: On test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11: ROLLBACK
+[0m21:26:09.992334 [debug] [Thread-3 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m21:26:09.992487 [debug] [Thread-2 (]: Began running node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m21:26:09.992655 [debug] [Thread-4 (]: On test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11: Close
+[0m21:26:09.992787 [debug] [Thread-3 (]: Began running node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m21:26:09.992924 [info ] [Thread-2 (]: 5 of 6 START test not_null_stg_patients_patient_id ............................. [RUN]
+[0m21:26:09.993341 [info ] [Thread-4 (]: 4 of 6 PASS not_null_stg_patients_file_path .................................... [[32mPASS[0m in 0.24s]
+[0m21:26:09.993517 [info ] [Thread-3 (]: 6 of 6 START test unique_stg_patients_patient_id ............................... [RUN]
+[0m21:26:09.993703 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8, now test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344)
+[0m21:26:09.993899 [debug] [Thread-4 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m21:26:09.994039 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b, now test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0)
+[0m21:26:09.994168 [debug] [Thread-2 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m21:26:09.994370 [debug] [Thread-3 (]: Began compiling node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m21:26:09.996302 [debug] [Thread-2 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344"
+[0m21:26:09.998846 [debug] [Thread-3 (]: Writing injected SQL for node "test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0"
+[0m21:26:09.999320 [debug] [Thread-2 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m21:26:09.999472 [debug] [Thread-3 (]: Began executing node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m21:26:10.000592 [debug] [Thread-2 (]: Writing runtime sql for node "test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344"
+[0m21:26:10.001633 [debug] [Thread-3 (]: Writing runtime sql for node "test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0"
+[0m21:26:10.002638 [debug] [Thread-3 (]: Using trino connection "test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0"
+[0m21:26:10.002803 [debug] [Thread-3 (]: On test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "healthcare_mesh", "target_name": "dev", "node_id": "test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    patient_id as unique_field,
+    count(*) as n_records
+
+from "iceberg"."landing"."stg_patients"
+where patient_id is not null
+group by patient_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:26:10.002990 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m21:26:10.003491 [debug] [Thread-2 (]: Using trino connection "test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344"
+[0m21:26:10.004012 [debug] [Thread-2 (]: On test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "healthcare_mesh", "target_name": "dev", "node_id": "test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select patient_id
+from "iceberg"."landing"."stg_patients"
+where patient_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:26:10.004219 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m21:26:10.036225 [debug] [Thread-1 (]: SQL status: SUCCESS in 0.248 seconds
+[0m21:26:10.037030 [debug] [Thread-1 (]: On test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be: ROLLBACK
+[0m21:26:10.037196 [debug] [Thread-1 (]: On test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be: Close
+[0m21:26:10.037484 [info ] [Thread-1 (]: 1 of 6 PASS accepted_values_stg_patients_gender__male__female__other__unknown .. [[32mPASS[0m in 0.28s]
+[0m21:26:10.037694 [debug] [Thread-1 (]: Finished running node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m21:26:10.064883 [debug] [Thread-2 (]: SQL status: SUCCESS in 0.061 seconds
+[0m21:26:10.065899 [debug] [Thread-2 (]: On test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344: ROLLBACK
+[0m21:26:10.066091 [debug] [Thread-2 (]: On test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344: Close
+[0m21:26:10.066403 [info ] [Thread-2 (]: 5 of 6 PASS not_null_stg_patients_patient_id ................................... [[32mPASS[0m in 0.07s]
+[0m21:26:10.066606 [debug] [Thread-2 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m21:26:10.088994 [debug] [Thread-3 (]: SQL status: SUCCESS in 0.086 seconds
+[0m21:26:10.090089 [debug] [Thread-3 (]: On test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0: ROLLBACK
+[0m21:26:10.090290 [debug] [Thread-3 (]: On test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0: Close
+[0m21:26:10.090610 [info ] [Thread-3 (]: 6 of 6 PASS unique_stg_patients_patient_id ..................................... [[32mPASS[0m in 0.10s]
+[0m21:26:10.090826 [debug] [Thread-3 (]: Finished running node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m21:26:10.091477 [debug] [MainThread]: On master: COMMIT
+[0m21:26:10.091624 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:26:10.091720 [debug] [MainThread]: Connection 'test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be' was properly closed.
+[0m21:26:10.091811 [debug] [MainThread]: Connection 'test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344' was properly closed.
+[0m21:26:10.091897 [debug] [MainThread]: Connection 'test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0' was properly closed.
+[0m21:26:10.091979 [debug] [MainThread]: Connection 'test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11' was properly closed.
+[0m21:26:10.092096 [info ] [MainThread]: 
+[0m21:26:10.092207 [info ] [MainThread]: Finished running 6 data tests in 0 hours 0 minutes and 0.59 seconds (0.59s).
+[0m21:26:10.092639 [debug] [MainThread]: Command end result
+[0m21:26:10.103193 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m21:26:10.103951 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m21:26:10.106864 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/run_results.json
+[0m21:26:10.107032 [info ] [MainThread]: 
+[0m21:26:10.107190 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:26:10.107304 [info ] [MainThread]: 
+[0m21:26:10.107429 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=6
+[0m21:26:10.109382 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 0.9248278, "process_in_blocks": "0", "process_kernel_time": 0.208815, "process_mem_max_rss": "130777088", "process_out_blocks": "0", "process_user_time": 0.911839}
+[0m21:26:10.109594 [debug] [MainThread]: Command `dbt test` succeeded at 21:26:10.109555 after 0.93 seconds
+[0m21:26:10.109748 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104e61310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cb33d10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104c6ced0>]}
+[0m21:26:10.109885 [debug] [MainThread]: Flushing usage events
+[0m21:26:10.646651 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:07:12.747445 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10771b250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107713150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10775a690>]}
+
+
+============================== 22:07:12.750008 | 4a70439e-3374-4658-80da-5f25fcd2e8a3 ==============================
+[0m22:07:12.750008 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:07:12.750453 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'write_json': 'True', 'invocation_command': 'dbt parse', 'log_format': 'default', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'static_parser': 'True', 'target_path': 'None', 'warn_error': 'None', 'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'cache_selected_only': 'False', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'empty': 'None', 'indirect_selection': 'eager', 'printer_width': '80', 'quiet': 'False', 'no_print': 'None', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])'}
+[0m22:07:12.841679 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4a70439e-3374-4658-80da-5f25fcd2e8a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a90550>]}
+[0m22:07:12.866672 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4a70439e-3374-4658-80da-5f25fcd2e8a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1040f5750>]}
+[0m22:07:12.866997 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m22:07:12.909031 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m22:07:12.994009 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m22:07:12.994214 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m22:07:12.994319 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m22:07:13.011187 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '4a70439e-3374-4658-80da-5f25fcd2e8a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104388690>]}
+[0m22:07:13.012744 [info ] [MainThread]: Performance info: /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/perf_info.json
+[0m22:07:13.045191 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m22:07:13.046358 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m22:07:13.048233 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 0.3399834, "process_in_blocks": "0", "process_kernel_time": 0.183041, "process_mem_max_rss": "123207680", "process_out_blocks": "0", "process_user_time": 0.751506}
+[0m22:07:13.048412 [debug] [MainThread]: Command `dbt parse` succeeded at 22:07:13.048378 after 0.34 seconds
+[0m22:07:13.048547 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1023e5190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102234d50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102234cd0>]}
+[0m22:07:13.048675 [debug] [MainThread]: Flushing usage events
+[0m22:07:13.646990 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:07:59.922597 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109419cd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1094a44d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1094a7950>]}
+
+
+============================== 22:07:59.924733 | 8d843343-207a-4c92-89fc-33dbd47e3838 ==============================
+[0m22:07:59.924733 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:07:59.925040 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'invocation_command': 'dbt parse', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'fail_fast': 'False', 'target_path': 'None', 'write_json': 'True', 'cache_selected_only': 'False', 'static_parser': 'True', 'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'printer_width': '80', 'introspect': 'True', 'warn_error': 'None', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'partial_parse': 'True', 'no_print': 'None', 'quiet': 'False', 'indirect_selection': 'eager', 'empty': 'None'}
+[0m22:08:00.015119 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8d843343-207a-4c92-89fc-33dbd47e3838', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109637190>]}
+[0m22:08:00.040177 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8d843343-207a-4c92-89fc-33dbd47e3838', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106384e10>]}
+[0m22:08:00.040472 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m22:08:00.082798 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m22:08:00.119636 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m22:08:00.120000 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '8d843343-207a-4c92-89fc-33dbd47e3838', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1081435d0>]}
+[0m22:08:00.560008 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on 'stg_patients' in
+package 'healthcare_mesh' (models/staging/schema.yml). Arguments to generic
+tests should be nested under the `arguments` property.
+[0m22:08:00.560277 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '8d843343-207a-4c92-89fc-33dbd47e3838', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108b6e150>]}
+[0m22:08:00.607935 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.healthcare_mesh.marts
+[0m22:08:00.610774 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8d843343-207a-4c92-89fc-33dbd47e3838', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109f15cd0>]}
+[0m22:08:00.612416 [info ] [MainThread]: Performance info: /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/perf_info.json
+[0m22:08:00.641245 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m22:08:00.642279 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m22:08:00.642507 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m22:08:00.644328 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 0.7598141, "process_in_blocks": "0", "process_kernel_time": 0.193108, "process_mem_max_rss": "132661248", "process_out_blocks": "0", "process_user_time": 1.203129}
+[0m22:08:00.644516 [debug] [MainThread]: Command `dbt parse` succeeded at 22:08:00.644476 after 0.76 seconds
+[0m22:08:00.644669 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1094cc110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1047e5190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104737e50>]}
+[0m22:08:00.644811 [debug] [MainThread]: Flushing usage events
+[0m22:08:01.179178 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:08:40.692361 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110018710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1077b6450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1100cc750>]}
+
+
+============================== 22:08:40.694859 | 54a0db32-a96b-491e-8ee7-2ccb8e94716e ==============================
+[0m22:08:40.694859 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:08:40.695197 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'use_colors': 'True', 'version_check': 'True', 'fail_fast': 'False', 'target_path': 'None', 'write_json': 'True', 'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'empty': 'None', 'debug': 'False', 'no_print': 'None', 'invocation_command': 'dbt parse', 'printer_width': '80', 'log_cache_events': 'False', 'quiet': 'False', 'static_parser': 'True'}
+[0m22:08:40.787635 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '54a0db32-a96b-491e-8ee7-2ccb8e94716e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1100f2090>]}
+[0m22:08:40.813394 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '54a0db32-a96b-491e-8ee7-2ccb8e94716e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104916450>]}
+[0m22:08:40.813759 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m22:08:40.856823 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m22:08:40.910668 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m22:08:40.911058 [debug] [MainThread]: Partial parsing: updated file: healthcare_mesh://models/staging/schema.yml
+[0m22:08:41.108106 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.healthcare_mesh.marts
+[0m22:08:41.112024 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '54a0db32-a96b-491e-8ee7-2ccb8e94716e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110cc2ad0>]}
+[0m22:08:41.113418 [info ] [MainThread]: Performance info: /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/perf_info.json
+[0m22:08:41.143423 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m22:08:41.144877 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m22:08:41.146787 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 0.49258217, "process_in_blocks": "0", "process_kernel_time": 0.199072, "process_mem_max_rss": "132775936", "process_out_blocks": "0", "process_user_time": 0.937872}
+[0m22:08:41.146979 [debug] [MainThread]: Command `dbt parse` succeeded at 22:08:41.146945 after 0.49 seconds
+[0m22:08:41.147119 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102d71190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107acee90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102cc3e50>]}
+[0m22:08:41.147254 [debug] [MainThread]: Flushing usage events
+[0m22:08:41.727091 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:10:07.512070 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1070eb710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107184a10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107185290>]}
+
+
+============================== 22:10:07.514242 | 59e69a34-9092-434e-b0b9-ec1a3d7ab6ab ==============================
+[0m22:10:07.514242 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:10:07.514493 [debug] [MainThread]: running dbt with arguments {'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'quiet': 'False', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'use_experimental_parser': 'False', 'warn_error': 'None', 'use_colors': 'True', 'partial_parse': 'True', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'printer_width': '80', 'no_print': 'None', 'static_parser': 'True', 'introspect': 'True', 'empty': 'None', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'version_check': 'True', 'debug': 'False', 'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'invocation_command': 'dbt test', 'target_path': 'None'}
+[0m22:10:07.605486 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '59e69a34-9092-434e-b0b9-ec1a3d7ab6ab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10753ab90>]}
+[0m22:10:07.630032 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '59e69a34-9092-434e-b0b9-ec1a3d7ab6ab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104581a50>]}
+[0m22:10:07.630329 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m22:10:07.672364 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m22:10:07.726671 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m22:10:07.726874 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m22:10:07.726980 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m22:10:07.729433 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.healthcare_mesh.marts
+[0m22:10:07.743201 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '59e69a34-9092-434e-b0b9-ec1a3d7ab6ab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10794d550>]}
+[0m22:10:07.775226 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m22:10:07.776406 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m22:10:07.808507 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '59e69a34-9092-434e-b0b9-ec1a3d7ab6ab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10754f9d0>]}
+[0m22:10:07.808743 [info ] [MainThread]: Found 1 model, 6 data tests, 1 source, 484 macros
+[0m22:10:07.808865 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '59e69a34-9092-434e-b0b9-ec1a3d7ab6ab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10786de10>]}
+[0m22:10:07.809642 [info ] [MainThread]: 
+[0m22:10:07.809792 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:10:07.809881 [info ] [MainThread]: 
+[0m22:10:07.810016 [debug] [MainThread]: Acquiring new trino connection 'master'
+[0m22:10:07.810342 [debug] [ThreadPool]: Acquiring new trino connection 'list_iceberg_landing'
+[0m22:10:07.843828 [debug] [ThreadPool]: Using trino connection "list_iceberg_landing"
+[0m22:10:07.844091 [debug] [ThreadPool]: On list_iceberg_landing: select
+      t.table_catalog as database,
+      t.table_name as name,
+      t.table_schema as schema,
+      case when mv.name is not null then 'materialized_view'
+           when t.table_type = 'BASE TABLE' then 'table'
+           when t.table_type = 'VIEW' then 'view'
+           else t.table_type
+      end as table_type
+    from "iceberg".INFORMATION_SCHEMA.tables t
+    left join (
+            select * from system.metadata.materialized_views
+            where catalog_name = 'iceberg'
+              and schema_name = 'landing') mv
+          on mv.catalog_name = t.table_catalog and mv.schema_name = t.table_schema and mv.name = t.table_name
+    where t.table_schema = 'landing'
+/* dbt: */
+[0m22:10:07.844221 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:10:07.844332 [warn ] [ThreadPool]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m22:10:07.844516 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': '59e69a34-9092-434e-b0b9-ec1a3d7ab6ab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107876590>]}
+[0m22:10:08.084801 [debug] [ThreadPool]: SQL status: SUCCESS in 0.241 seconds
+[0m22:10:08.085600 [debug] [ThreadPool]: On list_iceberg_landing: ROLLBACK
+[0m22:10:08.085748 [debug] [ThreadPool]: On list_iceberg_landing: Close
+[0m22:10:08.086248 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '59e69a34-9092-434e-b0b9-ec1a3d7ab6ab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078c2090>]}
+[0m22:10:08.086489 [debug] [MainThread]: On master: COMMIT
+[0m22:10:08.088141 [debug] [Thread-1 (]: Began running node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m22:10:08.088322 [debug] [Thread-2 (]: Began running node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m22:10:08.088474 [debug] [Thread-3 (]: Began running node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m22:10:08.088596 [debug] [Thread-4 (]: Began running node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m22:10:08.088752 [info ] [Thread-1 (]: 1 of 6 START test accepted_values_stg_patients_gender__male__female__other__unknown  [RUN]
+[0m22:10:08.088917 [info ] [Thread-2 (]: 2 of 6 START test not_null_stg_patients_birth_date ............................. [RUN]
+[0m22:10:08.089076 [info ] [Thread-3 (]: 3 of 6 START test not_null_stg_patients_dbt_processed_at ....................... [RUN]
+[0m22:10:08.089213 [info ] [Thread-4 (]: 4 of 6 START test not_null_stg_patients_file_path .............................. [RUN]
+[0m22:10:08.089391 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_iceberg_landing, now test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be)
+[0m22:10:08.089552 [debug] [Thread-2 (]: Acquiring new trino connection 'test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8'
+[0m22:10:08.089697 [debug] [Thread-3 (]: Acquiring new trino connection 'test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b'
+[0m22:10:08.089835 [debug] [Thread-4 (]: Acquiring new trino connection 'test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11'
+[0m22:10:08.089965 [debug] [Thread-1 (]: Began compiling node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m22:10:08.090080 [debug] [Thread-2 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m22:10:08.090195 [debug] [Thread-3 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m22:10:08.090309 [debug] [Thread-4 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m22:10:08.095741 [debug] [Thread-1 (]: Writing injected SQL for node "test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be"
+[0m22:10:08.099191 [debug] [Thread-2 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8"
+[0m22:10:08.101512 [debug] [Thread-3 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b"
+[0m22:10:08.103079 [debug] [Thread-4 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11"
+[0m22:10:08.103815 [debug] [Thread-3 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m22:10:08.103990 [debug] [Thread-4 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m22:10:08.104130 [debug] [Thread-1 (]: Began executing node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m22:10:08.109971 [debug] [Thread-2 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m22:10:08.111938 [debug] [Thread-3 (]: Writing runtime sql for node "test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b"
+[0m22:10:08.113214 [debug] [Thread-4 (]: Writing runtime sql for node "test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11"
+[0m22:10:08.114264 [debug] [Thread-1 (]: Writing runtime sql for node "test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be"
+[0m22:10:08.115389 [debug] [Thread-2 (]: Writing runtime sql for node "test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8"
+[0m22:10:08.116669 [debug] [Thread-4 (]: Using trino connection "test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11"
+[0m22:10:08.117533 [debug] [Thread-1 (]: Using trino connection "test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be"
+[0m22:10:08.117711 [debug] [Thread-4 (]: On test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select file_path
+from "iceberg"."landing"."stg_patients"
+where file_path is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* dbt:test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11 */
+[0m22:10:08.117905 [debug] [Thread-1 (]: On test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        gender as value_field,
+        count(*) as n_records
+
+    from "iceberg"."landing"."stg_patients"
+    group by gender
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'male','female','other','unknown'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* dbt:test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be */
+[0m22:10:08.118374 [debug] [Thread-3 (]: Using trino connection "test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b"
+[0m22:10:08.118860 [debug] [Thread-2 (]: Using trino connection "test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8"
+[0m22:10:08.119003 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m22:10:08.119147 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:10:08.119276 [debug] [Thread-3 (]: On test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select dbt_processed_at
+from "iceberg"."landing"."stg_patients"
+where dbt_processed_at is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* dbt:test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b */
+[0m22:10:08.119409 [debug] [Thread-2 (]: On test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select birth_date
+from "iceberg"."landing"."stg_patients"
+where birth_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* dbt:test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8 */
+[0m22:10:08.120513 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m22:10:08.120892 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m22:10:08.338758 [debug] [Thread-3 (]: SQL status: SUCCESS in 0.218 seconds
+[0m22:10:08.341834 [debug] [Thread-3 (]: On test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b: ROLLBACK
+[0m22:10:08.342152 [debug] [Thread-3 (]: On test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b: Close
+[0m22:10:08.342519 [info ] [Thread-3 (]: 3 of 6 PASS not_null_stg_patients_dbt_processed_at ............................. [[32mPASS[0m in 0.25s]
+[0m22:10:08.342754 [debug] [Thread-3 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m22:10:08.342916 [debug] [Thread-3 (]: Began running node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m22:10:08.343054 [info ] [Thread-3 (]: 5 of 6 START test not_null_stg_patients_patient_id ............................. [RUN]
+[0m22:10:08.343304 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b, now test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344)
+[0m22:10:08.343479 [debug] [Thread-3 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m22:10:08.346313 [debug] [Thread-3 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344"
+[0m22:10:08.348233 [debug] [Thread-3 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m22:10:08.352329 [debug] [Thread-3 (]: Writing runtime sql for node "test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344"
+[0m22:10:08.353182 [debug] [Thread-2 (]: SQL status: SUCCESS in 0.232 seconds
+[0m22:10:08.354784 [debug] [Thread-2 (]: On test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8: ROLLBACK
+[0m22:10:08.356138 [debug] [Thread-3 (]: Using trino connection "test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344"
+[0m22:10:08.356463 [debug] [Thread-4 (]: SQL status: SUCCESS in 0.237 seconds
+[0m22:10:08.356665 [debug] [Thread-2 (]: On test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8: Close
+[0m22:10:08.356932 [debug] [Thread-3 (]: On test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select patient_id
+from "iceberg"."landing"."stg_patients"
+where patient_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* dbt:test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344 */
+[0m22:10:08.357486 [debug] [Thread-4 (]: On test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11: ROLLBACK
+[0m22:10:08.357749 [info ] [Thread-2 (]: 2 of 6 PASS not_null_stg_patients_birth_date ................................... [[32mPASS[0m in 0.27s]
+[0m22:10:08.357930 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m22:10:08.358209 [debug] [Thread-1 (]: SQL status: SUCCESS in 0.239 seconds
+[0m22:10:08.358351 [debug] [Thread-4 (]: On test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11: Close
+[0m22:10:08.358555 [debug] [Thread-2 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m22:10:08.359354 [debug] [Thread-1 (]: On test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be: ROLLBACK
+[0m22:10:08.359598 [info ] [Thread-4 (]: 4 of 6 PASS not_null_stg_patients_file_path .................................... [[32mPASS[0m in 0.27s]
+[0m22:10:08.359833 [debug] [Thread-2 (]: Began running node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m22:10:08.360135 [debug] [Thread-1 (]: On test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be: Close
+[0m22:10:08.360351 [debug] [Thread-4 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m22:10:08.360503 [info ] [Thread-2 (]: 6 of 6 START test unique_stg_patients_patient_id ............................... [RUN]
+[0m22:10:08.360729 [info ] [Thread-1 (]: 1 of 6 PASS accepted_values_stg_patients_gender__male__female__other__unknown .. [[32mPASS[0m in 0.27s]
+[0m22:10:08.360949 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8, now test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0)
+[0m22:10:08.361139 [debug] [Thread-1 (]: Finished running node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m22:10:08.361274 [debug] [Thread-2 (]: Began compiling node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m22:10:08.363812 [debug] [Thread-2 (]: Writing injected SQL for node "test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0"
+[0m22:10:08.364517 [debug] [Thread-2 (]: Began executing node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m22:10:08.365518 [debug] [Thread-2 (]: Writing runtime sql for node "test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0"
+[0m22:10:08.366430 [debug] [Thread-2 (]: Using trino connection "test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0"
+[0m22:10:08.366579 [debug] [Thread-2 (]: On test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    patient_id as unique_field,
+    count(*) as n_records
+
+from "iceberg"."landing"."stg_patients"
+where patient_id is not null
+group by patient_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* dbt:test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0 */
+[0m22:10:08.366701 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m22:10:08.441971 [debug] [Thread-3 (]: SQL status: SUCCESS in 0.084 seconds
+[0m22:10:08.442901 [debug] [Thread-3 (]: On test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344: ROLLBACK
+[0m22:10:08.443072 [debug] [Thread-3 (]: On test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344: Close
+[0m22:10:08.443346 [info ] [Thread-3 (]: 5 of 6 PASS not_null_stg_patients_patient_id ................................... [[32mPASS[0m in 0.10s]
+[0m22:10:08.443547 [debug] [Thread-3 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m22:10:08.450077 [debug] [Thread-2 (]: SQL status: SUCCESS in 0.083 seconds
+[0m22:10:08.450771 [debug] [Thread-2 (]: On test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0: ROLLBACK
+[0m22:10:08.450917 [debug] [Thread-2 (]: On test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0: Close
+[0m22:10:08.451162 [info ] [Thread-2 (]: 6 of 6 PASS unique_stg_patients_patient_id ..................................... [[32mPASS[0m in 0.09s]
+[0m22:10:08.451374 [debug] [Thread-2 (]: Finished running node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m22:10:08.451868 [debug] [MainThread]: On master: COMMIT
+[0m22:10:08.451976 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:10:08.452060 [debug] [MainThread]: Connection 'test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be' was properly closed.
+[0m22:10:08.452136 [debug] [MainThread]: Connection 'test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0' was properly closed.
+[0m22:10:08.452210 [debug] [MainThread]: Connection 'test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344' was properly closed.
+[0m22:10:08.452284 [debug] [MainThread]: Connection 'test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11' was properly closed.
+[0m22:10:08.452381 [info ] [MainThread]: 
+[0m22:10:08.452486 [info ] [MainThread]: Finished running 6 data tests in 0 hours 0 minutes and 0.64 seconds (0.64s).
+[0m22:10:08.452962 [debug] [MainThread]: Command end result
+[0m22:10:08.461898 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m22:10:08.463245 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m22:10:08.466407 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/run_results.json
+[0m22:10:08.466590 [info ] [MainThread]: 
+[0m22:10:08.466754 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m22:10:08.466861 [info ] [MainThread]: 
+[0m22:10:08.466994 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=6
+[0m22:10:08.469106 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 0.99386203, "process_in_blocks": "0", "process_kernel_time": 0.218583, "process_mem_max_rss": "129761280", "process_out_blocks": "0", "process_user_time": 0.904404}
+[0m22:10:08.469352 [debug] [MainThread]: Command `dbt test` succeeded at 22:10:08.469315 after 0.99 seconds
+[0m22:10:08.469515 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1028dd110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10282fe50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10283cd50>]}
+[0m22:10:08.469667 [debug] [MainThread]: Flushing usage events
+[0m22:10:08.926918 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:55:29.282910 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10918ab50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1091fc1d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1091fca50>]}
+
+
+============================== 22:55:29.285348 | 5254dfae-ed6d-4e7f-911e-030b08df7c40 ==============================
+[0m22:55:29.285348 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:55:29.285603 [debug] [MainThread]: running dbt with arguments {'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'log_format': 'default', 'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'warn_error': 'None', 'use_colors': 'True', 'introspect': 'True', 'fail_fast': 'False', 'invocation_command': 'dbt parse --no-partial-parse', 'empty': 'None', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'indirect_selection': 'eager', 'write_json': 'True', 'target_path': 'None', 'printer_width': '80', 'static_parser': 'True', 'no_print': 'None', 'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'partial_parse': 'False', 'quiet': 'False'}
+[0m22:55:29.376728 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '5254dfae-ed6d-4e7f-911e-030b08df7c40', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1091cb750>]}
+[0m22:55:29.402777 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '5254dfae-ed6d-4e7f-911e-030b08df7c40', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106670a50>]}
+[0m22:55:29.403152 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m22:55:29.448889 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m22:55:29.449199 [debug] [MainThread]: Partial parsing not enabled
+[0m22:55:29.983035 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.healthcare_mesh.marts
+[0m22:55:29.985766 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '5254dfae-ed6d-4e7f-911e-030b08df7c40', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109d059d0>]}
+[0m22:55:29.987211 [info ] [MainThread]: Performance info: /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/perf_info.json
+[0m22:55:30.018208 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m22:55:30.019326 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m22:55:30.021229 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 0.7758241, "process_in_blocks": "0", "process_kernel_time": 0.172888, "process_mem_max_rss": "138199040", "process_out_blocks": "0", "process_user_time": 1.171125}
+[0m22:55:30.021434 [debug] [MainThread]: Command `dbt parse` succeeded at 22:55:30.021396 after 0.78 seconds
+[0m22:55:30.021594 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104975190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1091fc250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f046d0>]}
+[0m22:55:30.021749 [debug] [MainThread]: Flushing usage events
+[0m22:55:30.546640 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:55:31.384359 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108fb1a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109028d50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108ffc5d0>]}
+
+
+============================== 22:55:31.386052 | f15f5392-89a7-4933-8a57-5c1ddfe2a88e ==============================
+[0m22:55:31.386052 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:55:31.386282 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'printer_width': '80', 'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'invocation_command': 'dbt compile', 'partial_parse': 'True', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'no_print': 'None', 'log_format': 'default', 'indirect_selection': 'eager', 'use_colors': 'True', 'write_json': 'True', 'cache_selected_only': 'False', 'debug': 'False', 'version_check': 'True', 'quiet': 'False', 'warn_error': 'None', 'empty': 'False', 'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False'}
+[0m22:55:31.461561 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f15f5392-89a7-4933-8a57-5c1ddfe2a88e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c47450>]}
+[0m22:55:31.487072 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f15f5392-89a7-4933-8a57-5c1ddfe2a88e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1064cdf10>]}
+[0m22:55:31.487405 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m22:55:31.526704 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m22:55:31.570688 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m22:55:31.570882 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m22:55:31.570981 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m22:55:31.573062 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.healthcare_mesh.marts
+[0m22:55:31.587053 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f15f5392-89a7-4933-8a57-5c1ddfe2a88e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1097b1f10>]}
+[0m22:55:31.618708 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m22:55:31.619569 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m22:55:31.625627 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f15f5392-89a7-4933-8a57-5c1ddfe2a88e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1096a43d0>]}
+[0m22:55:31.625881 [info ] [MainThread]: Found 1 model, 6 data tests, 1 source, 484 macros
+[0m22:55:31.626014 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f15f5392-89a7-4933-8a57-5c1ddfe2a88e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1098f8710>]}
+[0m22:55:31.626705 [info ] [MainThread]: 
+[0m22:55:31.626818 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:55:31.626904 [info ] [MainThread]: 
+[0m22:55:31.627062 [debug] [MainThread]: Acquiring new trino connection 'master'
+[0m22:55:31.627384 [debug] [ThreadPool]: Acquiring new trino connection 'list_iceberg_landing'
+[0m22:55:31.691549 [debug] [ThreadPool]: Using trino connection "list_iceberg_landing"
+[0m22:55:31.691774 [debug] [ThreadPool]: On list_iceberg_landing: select
+      t.table_catalog as database,
+      t.table_name as name,
+      t.table_schema as schema,
+      case when mv.name is not null then 'materialized_view'
+           when t.table_type = 'BASE TABLE' then 'table'
+           when t.table_type = 'VIEW' then 'view'
+           else t.table_type
+      end as table_type
+    from "iceberg".INFORMATION_SCHEMA.tables t
+    left join (
+            select * from system.metadata.materialized_views
+            where catalog_name = 'iceberg'
+              and schema_name = 'landing') mv
+          on mv.catalog_name = t.table_catalog and mv.schema_name = t.table_schema and mv.name = t.table_name
+    where t.table_schema = 'landing'
+/* dbt: */
+[0m22:55:31.691900 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:55:31.692013 [warn ] [ThreadPool]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m22:55:31.692269 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': 'f15f5392-89a7-4933-8a57-5c1ddfe2a88e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10944ba10>]}
+[0m22:55:32.115232 [debug] [ThreadPool]: SQL status: SUCCESS in 0.423 seconds
+[0m22:55:32.116519 [debug] [ThreadPool]: On list_iceberg_landing: ROLLBACK
+[0m22:55:32.117052 [debug] [ThreadPool]: On list_iceberg_landing: Close
+[0m22:55:32.118040 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f15f5392-89a7-4933-8a57-5c1ddfe2a88e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1098f8710>]}
+[0m22:55:32.121308 [debug] [Thread-1 (]: Began running node model.healthcare_mesh.stg_patients
+[0m22:55:32.121806 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_iceberg_landing, now model.healthcare_mesh.stg_patients)
+[0m22:55:32.122192 [debug] [Thread-1 (]: Began compiling node model.healthcare_mesh.stg_patients
+[0m22:55:32.125801 [debug] [Thread-1 (]: Writing injected SQL for node "model.healthcare_mesh.stg_patients"
+[0m22:55:32.126371 [debug] [Thread-1 (]: Began executing node model.healthcare_mesh.stg_patients
+[0m22:55:32.126617 [debug] [Thread-1 (]: Finished running node model.healthcare_mesh.stg_patients
+[0m22:55:32.127056 [debug] [Thread-3 (]: Began running node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m22:55:32.127370 [debug] [Thread-4 (]: Began running node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m22:55:32.127733 [debug] [Thread-2 (]: Began running node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m22:55:32.128064 [debug] [Thread-3 (]: Acquiring new trino connection 'test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be'
+[0m22:55:32.128330 [debug] [Thread-1 (]: Began running node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m22:55:32.128641 [debug] [Thread-4 (]: Acquiring new trino connection 'test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8'
+[0m22:55:32.128958 [debug] [Thread-2 (]: Acquiring new trino connection 'test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b'
+[0m22:55:32.129077 [debug] [Thread-3 (]: Began compiling node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m22:55:32.129194 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.healthcare_mesh.stg_patients, now test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11)
+[0m22:55:32.129317 [debug] [Thread-4 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m22:55:32.129433 [debug] [Thread-2 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m22:55:32.138830 [debug] [Thread-3 (]: Writing injected SQL for node "test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be"
+[0m22:55:32.139214 [debug] [Thread-1 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m22:55:32.143323 [debug] [Thread-4 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8"
+[0m22:55:32.145139 [debug] [Thread-2 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b"
+[0m22:55:32.146767 [debug] [Thread-1 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11"
+[0m22:55:32.147037 [debug] [Thread-3 (]: Began executing node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m22:55:32.147263 [debug] [Thread-4 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m22:55:32.147540 [debug] [Thread-3 (]: Finished running node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m22:55:32.147679 [debug] [Thread-2 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m22:55:32.147892 [debug] [Thread-4 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m22:55:32.148017 [debug] [Thread-1 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m22:55:32.148141 [debug] [Thread-3 (]: Began running node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m22:55:32.148379 [debug] [Thread-2 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m22:55:32.148516 [debug] [Thread-4 (]: Began running node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m22:55:32.148717 [debug] [Thread-1 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m22:55:32.148839 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be, now test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344)
+[0m22:55:32.148991 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8, now test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0)
+[0m22:55:32.149171 [debug] [Thread-3 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m22:55:32.149323 [debug] [Thread-4 (]: Began compiling node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m22:55:32.150988 [debug] [Thread-3 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344"
+[0m22:55:32.153240 [debug] [Thread-4 (]: Writing injected SQL for node "test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0"
+[0m22:55:32.153575 [debug] [Thread-3 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m22:55:32.153797 [debug] [Thread-3 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m22:55:32.153907 [debug] [Thread-4 (]: Began executing node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m22:55:32.154151 [debug] [Thread-4 (]: Finished running node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m22:55:32.154553 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:55:32.154650 [debug] [MainThread]: Connection 'test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11' was properly closed.
+[0m22:55:32.154736 [debug] [MainThread]: Connection 'test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344' was properly closed.
+[0m22:55:32.154819 [debug] [MainThread]: Connection 'test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0' was properly closed.
+[0m22:55:32.154891 [debug] [MainThread]: Connection 'test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b' was properly closed.
+[0m22:55:32.155266 [debug] [MainThread]: Command end result
+[0m22:55:32.165062 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m22:55:32.165935 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m22:55:32.168718 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/run_results.json
+[0m22:55:32.169895 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": true, "command_wall_clock_time": 0.81683517, "process_in_blocks": "0", "process_kernel_time": 0.141065, "process_mem_max_rss": "129335296", "process_out_blocks": "0", "process_user_time": 0.816094}
+[0m22:55:32.170057 [debug] [MainThread]: Command `dbt compile` succeeded at 22:55:32.170028 after 0.82 seconds
+[0m22:55:32.170202 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104829090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108fa5d10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1046dfe10>]}
+[0m22:55:32.170357 [debug] [MainThread]: Flushing usage events
+[0m22:55:32.641783 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m00:00:08.526311 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105ae3710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105aa26d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105b2c890>]}
+
+
+============================== 00:00:08.528805 | dd11361a-c735-4576-ad3f-b4e688292291 ==============================
+[0m00:00:08.528805 [info ] [MainThread]: Running with dbt=1.11.7
+[0m00:00:08.529063 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'use_experimental_parser': 'False', 'static_parser': 'True', 'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'printer_width': '80', 'debug': 'False', 'version_check': 'True', 'invocation_command': 'dbt parse', 'warn_error': 'None', 'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'quiet': 'False', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'introspect': 'True', 'use_colors': 'True', 'fail_fast': 'False', 'empty': 'None', 'target_path': 'None', 'write_json': 'True', 'log_format': 'default', 'cache_selected_only': 'False', 'partial_parse': 'True'}
+[0m00:00:08.628126 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'dd11361a-c735-4576-ad3f-b4e688292291', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104d30150>]}
+[0m00:00:08.654652 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'dd11361a-c735-4576-ad3f-b4e688292291', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102f407d0>]}
+[0m00:00:08.654988 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m00:00:08.716496 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m00:00:08.770253 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m00:00:08.770463 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m00:00:08.770563 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m00:00:08.772752 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.healthcare_mesh.marts
+[0m00:00:08.788262 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'dd11361a-c735-4576-ad3f-b4e688292291', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1061ec490>]}
+[0m00:00:08.789861 [info ] [MainThread]: Performance info: /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/perf_info.json
+[0m00:00:08.821662 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m00:00:08.822748 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m00:00:08.824638 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 0.3341819, "process_in_blocks": "0", "process_kernel_time": 0.153091, "process_mem_max_rss": "126009344", "process_out_blocks": "0", "process_user_time": 0.711044}
+[0m00:00:08.824829 [debug] [MainThread]: Command `dbt parse` succeeded at 00:00:08.824795 after 0.33 seconds
+[0m00:00:08.824963 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x101394f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x101213cd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105a9bc90>]}
+[0m00:00:08.825091 [debug] [MainThread]: Flushing usage events
+[0m00:00:09.304429 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m00:00:10.128057 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115019790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1150b4ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1150b5090>]}
+
+
+============================== 00:00:10.129944 | 9f639fd4-8d86-4fd3-a08a-9ed5d8e3f0cb ==============================
+[0m00:00:10.129944 [info ] [MainThread]: Running with dbt=1.11.7
+[0m00:00:10.130220 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'indirect_selection': 'eager', 'profiles_dir': '/Users/habeebaramideshomuyiwa/.dbt', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'use_experimental_parser': 'False', 'debug': 'False', 'use_colors': 'True', 'write_json': 'True', 'warn_error': 'None', 'version_check': 'True', 'partial_parse': 'True', 'empty': 'False', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'no_print': 'None', 'target_path': 'None', 'quiet': 'False', 'cache_selected_only': 'False', 'printer_width': '80', 'log_path': '/Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/logs', 'invocation_command': 'dbt compile', 'introspect': 'True'}
+[0m00:00:10.214855 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9f639fd4-8d86-4fd3-a08a-9ed5d8e3f0cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1152e5210>]}
+[0m00:00:10.243330 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '9f639fd4-8d86-4fd3-a08a-9ed5d8e3f0cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106eedb10>]}
+[0m00:00:10.243743 [info ] [MainThread]: Registered adapter: trino=1.10.1
+[0m00:00:10.289096 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m00:00:10.336843 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m00:00:10.337048 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m00:00:10.337160 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m00:00:10.339417 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.healthcare_mesh.marts
+[0m00:00:10.354992 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '9f639fd4-8d86-4fd3-a08a-9ed5d8e3f0cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11586a1d0>]}
+[0m00:00:10.389145 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m00:00:10.390180 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m00:00:10.395884 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '9f639fd4-8d86-4fd3-a08a-9ed5d8e3f0cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11579f6d0>]}
+[0m00:00:10.396108 [info ] [MainThread]: Found 1 model, 6 data tests, 1 source, 484 macros
+[0m00:00:10.396237 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9f639fd4-8d86-4fd3-a08a-9ed5d8e3f0cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1157bfdd0>]}
+[0m00:00:10.397004 [info ] [MainThread]: 
+[0m00:00:10.397138 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:00:10.397243 [info ] [MainThread]: 
+[0m00:00:10.397407 [debug] [MainThread]: Acquiring new trino connection 'master'
+[0m00:00:10.397724 [debug] [ThreadPool]: Acquiring new trino connection 'list_iceberg_landing'
+[0m00:00:10.501549 [debug] [ThreadPool]: Using trino connection "list_iceberg_landing"
+[0m00:00:10.501786 [debug] [ThreadPool]: On list_iceberg_landing: select
+      t.table_catalog as database,
+      t.table_name as name,
+      t.table_schema as schema,
+      case when mv.name is not null then 'materialized_view'
+           when t.table_type = 'BASE TABLE' then 'table'
+           when t.table_type = 'VIEW' then 'view'
+           else t.table_type
+      end as table_type
+    from "iceberg".INFORMATION_SCHEMA.tables t
+    left join (
+            select * from system.metadata.materialized_views
+            where catalog_name = 'iceberg'
+              and schema_name = 'landing') mv
+          on mv.catalog_name = t.table_catalog and mv.schema_name = t.table_schema and mv.name = t.table_name
+    where t.table_schema = 'landing'
+/* dbt: */
+[0m00:00:10.501915 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:00:10.502018 [warn ] [ThreadPool]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m00:00:10.502227 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': '9f639fd4-8d86-4fd3-a08a-9ed5d8e3f0cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115896710>]}
+[0m00:00:11.704428 [debug] [ThreadPool]: SQL status: SUCCESS in 1.202 seconds
+[0m00:00:11.705154 [debug] [ThreadPool]: On list_iceberg_landing: ROLLBACK
+[0m00:00:11.705304 [debug] [ThreadPool]: On list_iceberg_landing: Close
+[0m00:00:11.705727 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9f639fd4-8d86-4fd3-a08a-9ed5d8e3f0cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147e0d10>]}
+[0m00:00:11.708226 [debug] [Thread-1 (]: Began running node model.healthcare_mesh.stg_patients
+[0m00:00:11.708456 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_iceberg_landing, now model.healthcare_mesh.stg_patients)
+[0m00:00:11.708650 [debug] [Thread-1 (]: Began compiling node model.healthcare_mesh.stg_patients
+[0m00:00:11.710798 [debug] [Thread-1 (]: Writing injected SQL for node "model.healthcare_mesh.stg_patients"
+[0m00:00:11.711428 [debug] [Thread-1 (]: Began executing node model.healthcare_mesh.stg_patients
+[0m00:00:11.711689 [debug] [Thread-1 (]: Finished running node model.healthcare_mesh.stg_patients
+[0m00:00:11.712187 [debug] [Thread-3 (]: Began running node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m00:00:11.712422 [debug] [Thread-4 (]: Began running node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m00:00:11.712556 [debug] [Thread-2 (]: Began running node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m00:00:11.712669 [debug] [Thread-1 (]: Began running node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m00:00:11.712826 [debug] [Thread-3 (]: Acquiring new trino connection 'test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be'
+[0m00:00:11.713059 [debug] [Thread-4 (]: Acquiring new trino connection 'test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8'
+[0m00:00:11.713332 [debug] [Thread-2 (]: Acquiring new trino connection 'test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b'
+[0m00:00:11.713552 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.healthcare_mesh.stg_patients, now test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11)
+[0m00:00:11.713712 [debug] [Thread-3 (]: Began compiling node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m00:00:11.714001 [debug] [Thread-4 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m00:00:11.714144 [debug] [Thread-2 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m00:00:11.714274 [debug] [Thread-1 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m00:00:11.720012 [debug] [Thread-3 (]: Writing injected SQL for node "test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be"
+[0m00:00:11.723632 [debug] [Thread-4 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8"
+[0m00:00:11.725260 [debug] [Thread-2 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b"
+[0m00:00:11.727422 [debug] [Thread-1 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11"
+[0m00:00:11.728252 [debug] [Thread-2 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m00:00:11.728522 [debug] [Thread-4 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m00:00:11.728647 [debug] [Thread-1 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m00:00:11.728833 [debug] [Thread-3 (]: Began executing node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m00:00:11.729319 [debug] [Thread-2 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b
+[0m00:00:11.729727 [debug] [Thread-4 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8
+[0m00:00:11.730045 [debug] [Thread-1 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11
+[0m00:00:11.730579 [debug] [Thread-3 (]: Finished running node test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be
+[0m00:00:11.730807 [debug] [Thread-2 (]: Began running node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m00:00:11.731141 [debug] [Thread-4 (]: Began running node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m00:00:11.731728 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.healthcare_mesh.not_null_stg_patients_dbt_processed_at.e1273e9c0b, now test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344)
+[0m00:00:11.731901 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.healthcare_mesh.not_null_stg_patients_birth_date.a809fa5fd8, now test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0)
+[0m00:00:11.732110 [debug] [Thread-2 (]: Began compiling node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m00:00:11.732267 [debug] [Thread-4 (]: Began compiling node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m00:00:11.734060 [debug] [Thread-2 (]: Writing injected SQL for node "test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344"
+[0m00:00:11.736654 [debug] [Thread-4 (]: Writing injected SQL for node "test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0"
+[0m00:00:11.737269 [debug] [Thread-2 (]: Began executing node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m00:00:11.737419 [debug] [Thread-4 (]: Began executing node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m00:00:11.737667 [debug] [Thread-2 (]: Finished running node test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344
+[0m00:00:11.738006 [debug] [Thread-4 (]: Finished running node test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0
+[0m00:00:11.738734 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:00:11.738852 [debug] [MainThread]: Connection 'test.healthcare_mesh.not_null_stg_patients_file_path.4c05aecd11' was properly closed.
+[0m00:00:11.738949 [debug] [MainThread]: Connection 'test.healthcare_mesh.accepted_values_stg_patients_gender__male__female__other__unknown.67dd3837be' was properly closed.
+[0m00:00:11.739037 [debug] [MainThread]: Connection 'test.healthcare_mesh.unique_stg_patients_patient_id.8907d3ccf0' was properly closed.
+[0m00:00:11.739122 [debug] [MainThread]: Connection 'test.healthcare_mesh.not_null_stg_patients_patient_id.e578180344' was properly closed.
+[0m00:00:11.739575 [debug] [MainThread]: Command end result
+[0m00:00:11.749188 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/manifest.json
+[0m00:00:11.749960 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/semantic_manifest.json
+[0m00:00:11.753012 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/habeebaramideshomuyiwa/Desktop/data-architect/healthcare-data-mesh/dbt_project/target/run_results.json
+[0m00:00:11.754302 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": true, "command_wall_clock_time": 1.6608969, "process_in_blocks": "0", "process_kernel_time": 0.168134, "process_mem_max_rss": "131121152", "process_out_blocks": "0", "process_user_time": 0.902048}
+[0m00:00:11.754499 [debug] [MainThread]: Command `dbt compile` succeeded at 00:00:11.754466 after 1.66 seconds
+[0m00:00:11.754652 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104d810d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1140490d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104cd3e90>]}
+[0m00:00:11.754800 [debug] [MainThread]: Flushing usage events
+[0m00:00:12.112693 [debug] [MainThread]: An error was encountered while trying to flush usage events
