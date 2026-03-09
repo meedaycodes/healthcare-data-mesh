@@ -7,6 +7,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    # Run a Trino container for dbt connection
+    services:
+      trino:
+        image: trinodb/trino:latest
+        ports:
+          - 8080:8080
+        # Wait for Trino to be healthy
+        options: >-
+          --health-cmd "curl -f http://localhost:8080/v1/info || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+
     steps:
       - uses: actions/checkout@v3
 
@@ -40,5 +54,5 @@ jobs:
       - name: dbt Parse & Compile
         run: |
           cd dbt_project
-          dbt parse # Validates model definitions
-          dbt compile # Checks if SQL is valid without running it
+          dbt parse
+          dbt compile
