@@ -18,6 +18,25 @@ jobs:
       - name: Install dbt-trino
         run: pip install dbt-trino
 
+      - name: Configure dbt profile
+        run: |
+          mkdir -p ~/.dbt
+          cat <<EOF > ~/.dbt/profiles.yml
+          healthcare_mesh:
+            target: dev
+            outputs:
+              dev:
+                type: trino
+                method: none
+                user: admin
+                host: localhost
+                port: 8080
+                catalog: iceberg
+                schema: landing
+                threads: 4
+                http_scheme: http
+          EOF
+
       - name: dbt Parse & Compile
         run: |
           cd dbt_project
