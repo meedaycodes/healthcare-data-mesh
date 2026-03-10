@@ -1,3 +1,3 @@
 FROM apache/airflow:2.7.1
 # Install boto3 so it's ready the moment the container starts
-RUN pip install --no-cache-dir boto3
+RUN pip install --no-cache-dir boto3 trino

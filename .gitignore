@@ -1,4 +1,36 @@
+# Data Generation Output
 synthea_output/
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# dbt Artifacts
+dbt_project/target/
+dbt_project/dbt_packages/
+dbt_project/logs/
+
+# Airflow
+airflow/logs/
+
+# Environment and Secrets
 .env
-target/
-dbt_packages/
+.env.*
+.dbt/
+profiles.yml
+
+# IDE and OS
+.DS_Store
+.claude/
+.vscode/
+.idea/
+
+# Local Tooling
+GEMINI.md

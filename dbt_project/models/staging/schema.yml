@@ -107,3 +107,35 @@ models:
         description: "When this record was processed by dbt"
         tests:
           - not_null
+  - name: stg_encounters
+    description: "Staging model for FHIR Encounter resources"
+    columns:
+      - name: encounter_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
+
+  - name: stg_conditions
+    description: "Staging model for FHIR Condition resources"
+    columns:
+      - name: condition_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
+
+  - name: stg_observations
+    description: "Staging model for FHIR Observation resources"
+    columns:
+      - name: observation_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
