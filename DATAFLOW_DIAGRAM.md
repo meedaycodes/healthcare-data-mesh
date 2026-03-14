@@ -15,7 +15,7 @@ graph LR
     subgraph "Ingestion (Airflow)"
         B[Local Filesystem<br/>synthea_output/fhir/]
         C[Airflow DAG<br/>Incremental Ingestion]
-        D[Direct Upload (boto3)<br/>to MinIO]
+        D["Direct Upload (boto3)<br/>to MinIO"]
     end
 
     subgraph "Storage & Catalog (Lakehouse)"
