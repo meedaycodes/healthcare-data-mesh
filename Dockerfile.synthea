@@ -21,6 +21,9 @@ RUN curl -L https://github.com/synthetichealth/synthea/releases/download/v3.2.0/
 # Step 6: Create output directory
 RUN mkdir -p ./output
 
-# Step 7: Define the Entrypoint
-# We add --exporter.baseDirectory to ensure files land where we expect
-CMD ["java", "-jar", "synthea.jar", "-p", "20", "--exporter.fhir.export=true", "--exporter.baseDirectory=./output/"]
+# Step 7: Add entrypoint script
+COPY scripts/synthea_entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+# Step 8: Define the Entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]

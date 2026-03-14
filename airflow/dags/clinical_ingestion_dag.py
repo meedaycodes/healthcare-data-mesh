@@ -15,10 +15,19 @@ def get_trino_connection():
         schema="landing",
     )
 
+def get_s3_client():
+    return boto3.client(
+        's3',
+        endpoint_url='http://healthcare-minio:9000',
+        aws_access_key_id='admin',
+        aws_secret_access_key='password',
+        region_name='us-east-1'
+    )
+
 def setup_trino_tables():
     conn = get_trino_connection()
     cursor = conn.cursor()
-    cursor.execute("CREATE SCHEMA IF NOT EXISTS iceberg.landing WITH (location = 's3a://landing-zone/raw/fhir/')")
+    cursor.execute("CREATE SCHEMA IF NOT EXISTS iceberg.landing")
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS iceberg.landing.fhir_bundles (
             file_path VARCHAR, 
@@ -29,49 +38,63 @@ def setup_trino_tables():
     cursor.close()
     conn.close()
 
-def load_fhir_to_trino():
-    conn = get_trino_connection()
-    cursor = conn.cursor()
-    source_dir = '/opt/airflow/synthea_output/fhir'
-    
-    if not os.path.exists(source_dir):
+def load_fhir_from_s3_to_trino_full():
+    s3 = get_s3_client()
+    bucket_name = 'landing-zone'
+    prefix = 'raw/fhir/'
+    SIZE_LIMIT = 3 * 1024 * 1024 # 3MB
+
+    response = s3.list_objects_v2(Bucket=bucket_name, Prefix=prefix)
+    if 'Contents' not in response:
+        print("No files found in S3.")
         return
 
-    # Delete existing records to allow re-runs
-    cursor.execute("DELETE FROM iceberg.landing.fhir_bundles")
+    conn = get_trino_connection()
+    cursor = conn.cursor()
 
-    for root, dirs, files in os.walk(source_dir):
-        if root != source_dir:
+    # Prepare staging
+    cursor.execute("DROP TABLE IF EXISTS memory.default.staging_full_ingest")
+    cursor.execute("CREATE TABLE memory.default.staging_full_ingest (file_path VARCHAR, data VARCHAR)")
+
+    files_processed = 0
+    for obj in response['Contents']:
+        s3_key = obj['Key']
+        if s3_key.endswith('/') or not s3_key.endswith('.json'):
             continue
             
-        for file in files:
-            if file.endswith(".json") and not file.startswith(('hospital', 'practitioner')):
-                local_path = os.path.join(root, file)
-                try:
-                    with open(local_path, 'r') as f:
-                        fhir_data = f.read()
-                    
-                    json.loads(fhir_data) # Validate JSON
-                    
-                    ingestion_ts = datetime.now()
-                    s3_key = f"raw/fhir/{file}"
-                    
-                    insert_query = """
-                        INSERT INTO fhir_bundles (file_path, data, ingestion_timestamp)
-                        VALUES (?, ?, ?)
-                    """
-                    cursor.execute(insert_query, (s3_key, fhir_data, ingestion_ts))
-                except Exception as e:
-                    print(f"Error loading {file}: {e}")
-                    
+        if obj['Size'] > SIZE_LIMIT:
+            print(f"Skipping {s3_key}: Size {obj['Size']} exceeds 3MB limit")
+            continue
+
+        try:
+            file_obj = s3.get_object(Bucket=bucket_name, Key=s3_key)
+            fhir_data = file_obj['Body'].read().decode('utf-8')
+            cursor.execute("INSERT INTO memory.default.staging_full_ingest (file_path, data) VALUES (?, ?)", (s3_key, fhir_data))
+            files_processed += 1
+        except Exception as e:
+            print(f"Error processing {s3_key}: {e}")
+
+    if files_processed > 0:
+        # Full refresh: Delete existing and move new
+        cursor.execute("DELETE FROM iceberg.landing.fhir_bundles")
+        cursor.execute("""
+            INSERT INTO iceberg.landing.fhir_bundles (file_path, data, ingestion_timestamp)
+            SELECT file_path, data, current_timestamp
+            FROM memory.default.staging_full_ingest
+        """)
+        print(f"Successfully performed full refresh of {files_processed} files.")
+    else:
+        print("No files to ingest.")
+
     cursor.close()
     conn.close()
 
 with DAG(
     'healthcare_ingestion_v2',
     start_date=datetime(2026, 3, 8),
-    schedule_interval='@hourly',
-    catchup=False
+    schedule_interval=None,
+    catchup=False,
+    tags=['ingestion', 'fhir', 's3', 'full']
 ) as dag:
 
     setup_task = PythonOperator(
@@ -81,7 +104,7 @@ with DAG(
 
     load_task = PythonOperator(
         task_id='load_fhir_to_trino',
-        python_callable=load_fhir_to_trino
+        python_callable=load_fhir_from_s3_to_trino_full
     )
 
     setup_task >> load_task

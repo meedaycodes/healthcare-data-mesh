@@ -36,7 +36,7 @@ In traditional healthcare data environments, data often resides in silos or brit
 
 ## 📈 Data Pipeline & Flow
 
-> **Note on Ingestion Performance:** To ensure stability within Trino's memory constraints, the incremental ingestion DAG is configured to process a maximum of **5 files per run** with a **5MB individual file size limit**. Files exceeding this limit are skipped to prevent OOM (Out of Memory) errors during JSON parsing.
+> **Note on Ingestion Performance:** To ensure stability within Trino's memory constraints, the ingestion pipeline is configured to process files with a **3MB individual file size limit** using a high-speed Memory Staging pattern. Files exceeding this limit are skipped to prevent OOM (Out of Memory) errors.
 
 For a detailed visual representation of the data flow and component interactions, please refer to the **[Architecture & Dataflow Diagram](DATAFLOW_DIAGRAM.md)**.
 
@@ -64,18 +64,29 @@ docker compose up -d
 docker exec -it healthcare_trino trino --execute "SHOW CATALOGS;"
 ```
 
-### 3. End-to-End Pipeline
+### 3. First-Run Bootstrap
+The generation and initial data load are manual steps to populate your Lakehouse.
 ```bash
-# Generate 20 synthetic patients
+# 1. Generate synthetic patients (auto-syncs to MinIO S3)
 make generate
 
-# Trigger incremental ingestion via Airflow
-make ingest_incremental
+# 2. Perform initial BOOTSTRAP load into Iceberg
+make ingest_full
 
-# Build and test dbt transformation models
+# 3. Build and test dbt transformation models
 make dbt_build
+```
 
-# Launch the BI Dashboard
+### 4. Ongoing Ingestion
+Once bootstrapped, **Airflow automatically runs the incremental ingestion every hour**. You can monitor this in the Airflow UI at `http://localhost:8081`.
+
+To manually trigger an incremental update:
+```bash
+make ingest_incremental
+```
+
+### 5. Launch BI Dashboard
+```bash
 make viz_up
 ```
 

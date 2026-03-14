@@ -169,8 +169,13 @@ services:
       context: .
       dockerfile: Dockerfile.synthea
     container_name: healthcare_synthea
+    entrypoint: /app/entrypoint.sh
     volumes:
       - ./synthea_output:/app/output
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=password
+      - PATIENT_COUNT=20
     networks:
       - healthcare_mesh_net
 

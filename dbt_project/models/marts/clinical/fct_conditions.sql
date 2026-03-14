@@ -1,3 +1,4 @@
+
 {{
   config(
     unique_key='condition_id',
