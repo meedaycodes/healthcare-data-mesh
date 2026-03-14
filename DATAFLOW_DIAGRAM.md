@@ -7,7 +7,7 @@ This document provides a comprehensive overview of the healthcare data mesh arch
 The project follows a modern **Lakehouse Architecture** using Apache Iceberg, Nessie, and Trino.
 
 ```mermaid
-graph TB
+graph LR
     subgraph "Data Generation"
         A[Synthea Generator<br/>HL7 FHIR R4 JSON]
     end
