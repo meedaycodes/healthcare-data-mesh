@@ -36,31 +36,9 @@ In traditional healthcare data environments, data often resides in silos or brit
 
 > **Note on Ingestion Performance:** To ensure stability within Trino's memory constraints, the incremental ingestion DAG is configured to process a maximum of **5 files per run** with a **5MB individual file size limit**. Files exceeding this limit are skipped to prevent OOM (Out of Memory) errors during JSON parsing.
 
-```mermaid
-graph LR
-    subgraph "Ingestion & Storage"
-        S[Synthea] -->|FHIR JSON| L[Local FS]
-        L -->|boto3 Direct Upload| M[MinIO S3]
-        M -->|Metadata & Reference| T[Trino SQL]
-    end
-```
-    subgraph "Lakehouse Architecture"
-        M <--> I[Apache Iceberg]
-        I <--> N[Nessie Catalog]
-        I <--> T[Trino SQL]
-    end
+For a detailed visual representation of the data flow and component interactions, please refer to the **[Architecture & Dataflow Diagram](DATAFLOW_DIAGRAM.md)**.
 
-    subgraph "Transformation Layer"
-        T --> D[dbt Models]
-        D -->|Flattened| P[Patients]
-        D -->|Flattened| E[Encounters]
-    end
-
-    subgraph "Analytics & BI"
-        P --> A[BI / Analysts]
-        E --> A
-    end
-```
+---
 
 ---
 
