@@ -71,8 +71,8 @@ nessie_merge:
 	@echo "\nMerge complete!"
 
 # Composite Commands
-pipeline_incremental: generate ingest_incremental
-pipeline_full: generate ingest_full
+pipeline_incremental: generate ingest_incremental dbt_build
+pipeline_full: generate ingest_full dbt_build
 
 # Visualization
 viz_up:

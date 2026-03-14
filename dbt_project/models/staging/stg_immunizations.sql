@@ -68,6 +68,15 @@ flattened_immunizations AS (
     CURRENT_TIMESTAMP AS dbt_processed_at
 
   FROM immunization_entries
+),
+
+deduplicated AS (
+  SELECT * FROM (
+    SELECT 
+      *,
+      row_number() OVER (PARTITION BY immunization_id ORDER BY ingestion_timestamp DESC) as rn
+    FROM flattened_immunizations
+  ) WHERE rn = 1
 )
 
-SELECT * FROM flattened_immunizations
+SELECT * FROM deduplicated

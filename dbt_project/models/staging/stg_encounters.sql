@@ -71,6 +71,15 @@ flattened_encounters AS (
     CURRENT_TIMESTAMP AS dbt_processed_at
 
   FROM encounter_entries
+),
+
+deduplicated AS (
+  SELECT * FROM (
+    SELECT 
+      *,
+      row_number() OVER (PARTITION BY encounter_id ORDER BY ingestion_timestamp DESC) as rn
+    FROM flattened_encounters
+  ) WHERE rn = 1
 )
 
-SELECT * FROM flattened_encounters
+SELECT * FROM deduplicated

@@ -152,6 +152,15 @@ flattened_patients AS (
     CURRENT_TIMESTAMP AS dbt_processed_at
 
   FROM patient_entries
+),
+
+deduplicated AS (
+  SELECT * FROM (
+    SELECT 
+      *,
+      row_number() OVER (PARTITION BY patient_id ORDER BY ingestion_timestamp DESC) as rn
+    FROM flattened_patients
+  ) WHERE rn = 1
 )
 
-SELECT * FROM flattened_patients
+SELECT * FROM deduplicated

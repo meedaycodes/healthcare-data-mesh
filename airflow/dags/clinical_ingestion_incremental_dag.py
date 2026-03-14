@@ -1,10 +1,15 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 from datetime import datetime
 import boto3
 import os
 import json
 from trino.dbapi import connect
+
+# Define paths for dbt within the Airflow container
+DBT_PROJECT_DIR = "/opt/airflow/dbt_project"
+DBT_PROFILES_DIR = "/opt/airflow/dbt_project"
 
 def get_trino_connection():
     return connect(
@@ -108,7 +113,7 @@ with DAG(
     start_date=datetime(2026, 3, 8),
     schedule_interval='@hourly',
     catchup=False,
-    tags=['ingestion', 'fhir', 's3', 'incremental']
+    tags=['ingestion', 'fhir', 's3', 'incremental', 'transformation']
 ) as dag:
 
     setup_task = PythonOperator(
@@ -121,4 +126,10 @@ with DAG(
         python_callable=load_fhir_from_s3_to_trino
     )
 
-    setup_task >> load_task
+    dbt_run_task = BashOperator(
+        task_id='dbt_transformation',
+        bash_command=f"cd {DBT_PROJECT_DIR} && /home/airflow/.local/bin/dbt build --profiles-dir {DBT_PROFILES_DIR}"
+    )
+
+    setup_task >> load_task >> dbt_run_task
+

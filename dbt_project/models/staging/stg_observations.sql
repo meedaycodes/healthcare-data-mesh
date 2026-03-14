@@ -85,6 +85,15 @@ flattened_observations AS (
     CURRENT_TIMESTAMP AS dbt_processed_at
 
   FROM observation_entries
+),
+
+deduplicated AS (
+  SELECT * FROM (
+    SELECT 
+      *,
+      row_number() OVER (PARTITION BY observation_id ORDER BY ingestion_timestamp DESC) as rn
+    FROM flattened_observations
+  ) WHERE rn = 1
 )
 
-SELECT * FROM flattened_observations
+SELECT * FROM deduplicated

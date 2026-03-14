@@ -78,7 +78,10 @@ make dbt_build
 ```
 
 ### 4. Ongoing Ingestion
-Once bootstrapped, **Airflow automatically runs the incremental ingestion every hour**. You can monitor this in the Airflow UI at `http://localhost:8081`.
+Once bootstrapped, **Airflow automatically runs the incremental ingestion AND dbt transformations every hour**. You can monitor this in the Airflow UI at `http://localhost:8081`. The pipeline now handles:
+- **S3 Ingestion:** Pulling new FHIR JSON from MinIO.
+- **Deduplication:** Cleaning synthetic data in the staging layer.
+- **Transformation:** Building and testing clinical marts in the Gold schema.
 
 To manually trigger an incremental update:
 ```bash

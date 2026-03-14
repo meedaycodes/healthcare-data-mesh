@@ -75,6 +75,15 @@ flattened_medication_requests AS (
     CURRENT_TIMESTAMP AS dbt_processed_at
 
   FROM medication_request_entries
+),
+
+deduplicated AS (
+  SELECT * FROM (
+    SELECT 
+      *,
+      row_number() OVER (PARTITION BY medication_request_id ORDER BY ingestion_timestamp DESC) as rn
+    FROM flattened_medication_requests
+  ) WHERE rn = 1
 )
 
-SELECT * FROM flattened_medication_requests
+SELECT * FROM deduplicated

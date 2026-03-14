@@ -67,6 +67,15 @@ flattened_procedures AS (
     CURRENT_TIMESTAMP AS dbt_processed_at
 
   FROM procedure_entries
+),
+
+deduplicated AS (
+  SELECT * FROM (
+    SELECT 
+      *,
+      row_number() OVER (PARTITION BY procedure_id ORDER BY ingestion_timestamp DESC) as rn
+    FROM flattened_procedures
+  ) WHERE rn = 1
 )
 
-SELECT * FROM flattened_procedures
+SELECT * FROM deduplicated

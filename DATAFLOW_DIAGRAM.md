@@ -66,11 +66,12 @@ graph LR
 
 ### 2. Ingestion & Orchestration Layer
 - **Orchestrator:** Apache Airflow
-- **Mechanism:** The `healthcare_ingestion_incremental` DAG pulls directly from S3 (MinIO).
-- **Memory Staging Pattern:** 
-    1. **S3 Scan:** Airflow identifies new JSON files in MinIO that haven't been ingested yet.
-    2. **Memory Stage:** Small batches of files are read and inserted into a **Trino Memory Connector** table. This acts as a high-speed scratchpad, preventing the Trino Coordinator from being overwhelmed by large SQL strings.
-    3. **Bulk Commit:** A single `INSERT INTO ... SELECT` query moves data from Memory to the persistent Iceberg table.
+- **Mechanism:** The `healthcare_ingestion_incremental` DAG pulls directly from S3 (MinIO) and triggers dbt transformations.
+- **Automated Pipeline:**
+    1. **S3 Scan:** Identifies new JSON files in MinIO.
+    2. **Memory Stage:** Loads files into Trino Memory Connector.
+    3. **Bulk Commit:** Moves data to the persistent Iceberg table.
+    4. **dbt Build:** Triggers `dbt build` to flatten and transform the data into analytics-ready models.
 - **Safety Rails:** Skips files over **3MB** to ensure Trino cluster stability.
 
 ### 3. Lakehouse Layer (Storage & Catalog)
