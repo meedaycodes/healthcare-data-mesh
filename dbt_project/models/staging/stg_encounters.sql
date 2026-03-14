@@ -1,6 +1,7 @@
 {{
   config(
-    materialized='table',
+    materialized='incremental',
+    unique_key='encounter_id',
     tags=['staging', 'fhir', 'encounters']
   )
 }}
@@ -11,6 +12,9 @@ WITH fhir_raw AS (
     json_parse(data) AS bundle_json,
     ingestion_timestamp
   FROM {{ source('landing', 'fhir_bundles') }}
+  {% if is_incremental() %}
+  WHERE ingestion_timestamp > (SELECT MAX(ingestion_timestamp) FROM {{ this }})
+  {% endif %}
 ),
 
 encounter_entries AS (
@@ -68,6 +72,7 @@ flattened_encounters AS (
     -- Metadata
     file_path,
     ingestion_timestamp,
+    ingestion_timestamp AS ingested_at,
     CURRENT_TIMESTAMP AS dbt_processed_at
 
   FROM encounter_entries

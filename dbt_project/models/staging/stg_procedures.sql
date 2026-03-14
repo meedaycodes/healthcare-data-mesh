@@ -1,8 +1,8 @@
 {{
   config(
     materialized='incremental',
-    unique_key='observation_id',
-    tags=['staging', 'fhir', 'observations']
+    unique_key='procedure_id',
+    tags=['staging', 'fhir', 'procedures']
   )
 }}
 
@@ -17,7 +17,7 @@ WITH fhir_raw AS (
   {% endif %}
 ),
 
-observation_entries AS (
+procedure_entries AS (
   SELECT
     file_path,
     ingestion_timestamp,
@@ -26,13 +26,13 @@ observation_entries AS (
   CROSS JOIN UNNEST(
     CAST(json_extract(bundle_json, '$.entry') AS ARRAY(JSON))
   ) AS t(entry_json)
-  WHERE json_extract_scalar(entry_json, '$.resource.resourceType') = 'Observation'
+  WHERE json_extract_scalar(entry_json, '$.resource.resourceType') = 'Procedure'
 ),
 
-flattened_observations AS (
+flattened_procedures AS (
   SELECT
     -- Identifiers
-    json_extract_scalar(entry_json, '$.resource.id') AS observation_id,
+    json_extract_scalar(entry_json, '$.resource.id') AS procedure_id,
     
     -- Foreign Keys
     REPLACE(
@@ -50,38 +50,20 @@ flattened_observations AS (
     -- Details
     json_extract_scalar(entry_json, '$.resource.status') AS status,
     
-    -- Category
-    json_extract_scalar(
-      CAST(json_extract(entry_json, '$.resource.category[0].coding[0]') AS JSON),
-      '$.code'
-    ) AS category,
-    
     -- Code and Description
     json_extract_scalar(
       CAST(json_extract(entry_json, '$.resource.code.coding[0]') AS JSON),
       '$.code'
-    ) AS observation_code,
+    ) AS procedure_code,
     
     json_extract_scalar(
       CAST(json_extract(entry_json, '$.resource.code.coding[0]') AS JSON),
       '$.display'
-    ) AS observation_description,
+    ) AS procedure_description,
     
-    -- Value
-    CAST(json_extract_scalar(
-      CAST(json_extract(entry_json, '$.resource.valueQuantity') AS JSON),
-      '$.value'
-    ) AS DOUBLE) AS value_quantity,
-    
-    json_extract_scalar(
-      CAST(json_extract(entry_json, '$.resource.valueQuantity') AS JSON),
-      '$.unit'
-    ) AS value_unit,
-
     -- Timing
-    from_iso8601_timestamp(
-      json_extract_scalar(entry_json, '$.resource.effectiveDateTime')
-    ) AS effective_date,
+    CAST(SUBSTR(json_extract_scalar(entry_json, '$.resource.performedPeriod.start'), 1, 10) AS DATE) AS start_date,
+    CAST(SUBSTR(json_extract_scalar(entry_json, '$.resource.performedPeriod.end'), 1, 10) AS DATE) AS end_date,
 
     -- Metadata
     file_path,
@@ -89,7 +71,7 @@ flattened_observations AS (
     ingestion_timestamp AS ingested_at,
     CURRENT_TIMESTAMP AS dbt_processed_at
 
-  FROM observation_entries
+  FROM procedure_entries
 )
 
-SELECT * FROM flattened_observations
+SELECT * FROM flattened_procedures

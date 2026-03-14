@@ -1,6 +1,7 @@
 {{
   config(
-    materialized='table',
+    materialized='incremental',
+    unique_key='condition_id',
     tags=['staging', 'fhir', 'conditions']
   )
 }}
@@ -11,6 +12,9 @@ WITH fhir_raw AS (
     json_parse(data) AS bundle_json,
     ingestion_timestamp
   FROM {{ source('landing', 'fhir_bundles') }}
+  {% if is_incremental() %}
+  WHERE ingestion_timestamp > (SELECT MAX(ingestion_timestamp) FROM {{ this }})
+  {% endif %}
 ),
 
 condition_entries AS (
@@ -72,9 +76,32 @@ flattened_conditions AS (
     -- Metadata
     file_path,
     ingestion_timestamp,
+    ingestion_timestamp AS ingested_at,
     CURRENT_TIMESTAMP AS dbt_processed_at
 
   FROM condition_entries
+),
+
+deduplicated AS (
+  SELECT * FROM (
+    SELECT *,
+      ROW_NUMBER() OVER (PARTITION BY condition_id ORDER BY ingestion_timestamp DESC) as rn
+    FROM flattened_conditions
+  ) WHERE rn = 1
 )
 
-SELECT * FROM flattened_conditions
+SELECT 
+    condition_id,
+    patient_id,
+    encounter_id,
+    clinical_status,
+    verification_status,
+    condition_code,
+    condition_description,
+    onset_date,
+    abatement_date,
+    file_path,
+    ingestion_timestamp,
+    ingested_at,
+    dbt_processed_at
+FROM deduplicated

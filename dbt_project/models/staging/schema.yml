@@ -21,8 +21,7 @@ models:
         description: "Administrative gender (male, female, other, unknown)"
         tests:
           - accepted_values:
-              arguments:
-                values: ['male', 'female', 'other', 'unknown']
+              values: ['male', 'female', 'other', 'unknown']
 
       - name: birth_date
         description: "Patient date of birth"
@@ -103,10 +102,14 @@ models:
       - name: ingestion_timestamp
         description: "When the source file was ingested into MinIO"
 
+      - name: ingested_at
+        description: "Alias for ingestion_timestamp for compatibility"
+
       - name: dbt_processed_at
         description: "When this record was processed by dbt"
         tests:
           - not_null
+
   - name: stg_encounters
     description: "Staging model for FHIR Encounter resources"
     columns:
@@ -115,6 +118,14 @@ models:
           - unique
           - not_null
       - name: patient_id
+        tests:
+          - not_null
+      - name: ingestion_timestamp
+        description: "When the source file was ingested into MinIO"
+      - name: ingested_at
+        description: "Alias for ingestion_timestamp for compatibility"
+      - name: dbt_processed_at
+        description: "When this record was processed by dbt"
         tests:
           - not_null
 
@@ -128,6 +139,14 @@ models:
       - name: patient_id
         tests:
           - not_null
+      - name: ingestion_timestamp
+        description: "When the source file was ingested into MinIO"
+      - name: ingested_at
+        description: "Alias for ingestion_timestamp for compatibility"
+      - name: dbt_processed_at
+        description: "When this record was processed by dbt"
+        tests:
+          - not_null
 
   - name: stg_observations
     description: "Staging model for FHIR Observation resources"
@@ -137,5 +156,89 @@ models:
           - unique
           - not_null
       - name: patient_id
+        tests:
+          - not_null
+      - name: ingestion_timestamp
+        description: "When the source file was ingested into MinIO"
+      - name: ingested_at
+        description: "Alias for ingestion_timestamp for compatibility"
+      - name: dbt_processed_at
+        description: "When this record was processed by dbt"
+        tests:
+          - not_null
+
+  - name: stg_procedures
+    description: "Staging model for FHIR Procedure resources"
+    columns:
+      - name: procedure_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
+      - name: ingestion_timestamp
+        description: "When the source file was ingested into MinIO"
+      - name: ingested_at
+        description: "Alias for ingestion_timestamp for compatibility"
+      - name: dbt_processed_at
+        description: "When this record was processed by dbt"
+        tests:
+          - not_null
+
+  - name: stg_immunizations
+    description: "Staging model for FHIR Immunization resources"
+    columns:
+      - name: immunization_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
+      - name: ingestion_timestamp
+        description: "When the source file was ingested into MinIO"
+      - name: ingested_at
+        description: "Alias for ingestion_timestamp for compatibility"
+      - name: dbt_processed_at
+        description: "When this record was processed by dbt"
+        tests:
+          - not_null
+
+  - name: stg_medication_requests
+    description: "Staging model for FHIR MedicationRequest resources"
+    columns:
+      - name: medication_request_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
+      - name: ingestion_timestamp
+        description: "When the source file was ingested into MinIO"
+      - name: ingested_at
+        description: "Alias for ingestion_timestamp for compatibility"
+      - name: dbt_processed_at
+        description: "When this record was processed by dbt"
+        tests:
+          - not_null
+
+  - name: stg_allergy_intolerances
+    description: "Staging model for FHIR AllergyIntolerance resources"
+    columns:
+      - name: allergy_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
+      - name: ingestion_timestamp
+        description: "When the source file was ingested into MinIO"
+      - name: ingested_at
+        description: "Alias for ingestion_timestamp for compatibility"
+      - name: dbt_processed_at
+        description: "When this record was processed by dbt"
         tests:
           - not_null

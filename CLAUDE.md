@@ -12,9 +12,9 @@ This is a healthcare data mesh implementation using a modern lakehouse architect
 
 **Data Flow:**
 1. **Synthea** generates synthetic FHIR healthcare data (JSON)
-2. **Airflow DAG** (`clinical_ingestion_dag.py`) syncs FHIR files from local volume to MinIO
+2. **Airflow DAG** (`clinical_ingestion_incremental_dag.py`) uploads FHIR files directly to MinIO via `boto3`
 3. **MinIO** provides S3-compatible object storage (buckets: `landing-zone`, `healthcare-warehouse`)
-4. **Trino** queries data via Iceberg table format
+4. **Trino** tracks metadata and queries data via Iceberg table format
 5. **Nessie** provides Git-like data versioning and catalog management
 6. **dbt** transforms raw data into analytics-ready models
 
@@ -157,19 +157,20 @@ Should configure a profile named `healthcare_mesh` targeting Trino with the Iceb
 
 ### Airflow DAG
 
-File: `airflow/dags/clinical_ingestion_dag.py`
+File: `airflow/dags/clinical_ingestion_incremental_dag.py`
 
 - Runs hourly (`@hourly` schedule)
-- Syncs FHIR JSON files from `/opt/airflow/synthea_output/fhir` to MinIO bucket `landing-zone` under `raw/fhir/`
-- Uses boto3 with MinIO endpoint
+- Uploads FHIR JSON files from `/opt/airflow/synthea_output/fhir` directly to MinIO bucket `landing-zone` using `boto3`.
+- Registers file metadata in Trino (`iceberg.landing.fhir_bundles`).
+- **Ingestion Limits:** To ensure Trino stability, each run is limited to **5 files**, and any individual file larger than **5MB** is skipped.
 
 ## Development Workflow
 
-1. **Generate Data**: Run `synthea-gen` to create synthetic FHIR patients
-2. **Ingest Data**: Airflow DAG automatically syncs files to MinIO (or trigger manually)
-3. **Query Raw Data**: Use Trino to explore data in `landing-zone` bucket
-4. **Transform Data**: Create dbt models in `dbt_project/models/` to build analytics tables
-5. **Version Control**: Nessie tracks table versions and metadata changes
+1. **Generate Data**: Run `synthea-gen` to create synthetic FHIR patients.
+2. **Ingest Data**: Airflow DAG processes new files (up to 5 per run, <5MB each) and moves them to `processed/`.
+3. **Query Raw Data**: Use Trino to explore data in the `landing.fhir_bundles` table.
+4. **Transform Data**: Create dbt models in `dbt_project/models/` to build analytics tables.
+5. **Version Control**: Nessie tracks table versions and metadata changes.
 
 ## Nessie Branching & Data Versioning
 

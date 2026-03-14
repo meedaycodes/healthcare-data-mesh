@@ -1,8 +1,8 @@
 {{
   config(
     materialized='incremental',
-    unique_key='observation_id',
-    tags=['staging', 'fhir', 'observations']
+    unique_key='medication_request_id',
+    tags=['staging', 'fhir', 'medications']
   )
 }}
 
@@ -17,7 +17,7 @@ WITH fhir_raw AS (
   {% endif %}
 ),
 
-observation_entries AS (
+medication_request_entries AS (
   SELECT
     file_path,
     ingestion_timestamp,
@@ -26,13 +26,13 @@ observation_entries AS (
   CROSS JOIN UNNEST(
     CAST(json_extract(bundle_json, '$.entry') AS ARRAY(JSON))
   ) AS t(entry_json)
-  WHERE json_extract_scalar(entry_json, '$.resource.resourceType') = 'Observation'
+  WHERE json_extract_scalar(entry_json, '$.resource.resourceType') = 'MedicationRequest'
 ),
 
-flattened_observations AS (
+flattened_medication_requests AS (
   SELECT
     -- Identifiers
-    json_extract_scalar(entry_json, '$.resource.id') AS observation_id,
+    json_extract_scalar(entry_json, '$.resource.id') AS medication_request_id,
     
     -- Foreign Keys
     REPLACE(
@@ -47,41 +47,31 @@ flattened_observations AS (
       ''
     ) AS encounter_id,
 
+    REPLACE(
+      json_extract_scalar(entry_json, '$.resource.requester.reference'),
+      'urn:uuid:',
+      ''
+    ) AS requester_id,
+
     -- Details
     json_extract_scalar(entry_json, '$.resource.status') AS status,
-    
-    -- Category
-    json_extract_scalar(
-      CAST(json_extract(entry_json, '$.resource.category[0].coding[0]') AS JSON),
-      '$.code'
-    ) AS category,
+    json_extract_scalar(entry_json, '$.resource.intent') AS intent,
     
     -- Code and Description
     json_extract_scalar(
-      CAST(json_extract(entry_json, '$.resource.code.coding[0]') AS JSON),
+      CAST(json_extract(entry_json, '$.resource.medicationCodeableConcept.coding[0]') AS JSON),
       '$.code'
-    ) AS observation_code,
+    ) AS medication_code,
     
     json_extract_scalar(
-      CAST(json_extract(entry_json, '$.resource.code.coding[0]') AS JSON),
+      CAST(json_extract(entry_json, '$.resource.medicationCodeableConcept.coding[0]') AS JSON),
       '$.display'
-    ) AS observation_description,
+    ) AS medication_description,
     
-    -- Value
-    CAST(json_extract_scalar(
-      CAST(json_extract(entry_json, '$.resource.valueQuantity') AS JSON),
-      '$.value'
-    ) AS DOUBLE) AS value_quantity,
-    
-    json_extract_scalar(
-      CAST(json_extract(entry_json, '$.resource.valueQuantity') AS JSON),
-      '$.unit'
-    ) AS value_unit,
-
     -- Timing
     from_iso8601_timestamp(
-      json_extract_scalar(entry_json, '$.resource.effectiveDateTime')
-    ) AS effective_date,
+      json_extract_scalar(entry_json, '$.resource.authoredOn')
+    ) AS authored_date,
 
     -- Metadata
     file_path,
@@ -89,7 +79,7 @@ flattened_observations AS (
     ingestion_timestamp AS ingested_at,
     CURRENT_TIMESTAMP AS dbt_processed_at
 
-  FROM observation_entries
+  FROM medication_request_entries
 )
 
-SELECT * FROM flattened_observations
+SELECT * FROM flattened_medication_requests

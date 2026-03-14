@@ -34,13 +34,16 @@ In traditional healthcare data environments, data often resides in silos or brit
 
 ## 📈 Data Pipeline & Flow
 
+> **Note on Ingestion Performance:** To ensure stability within Trino's memory constraints, the incremental ingestion DAG is configured to process a maximum of **5 files per run** with a **5MB individual file size limit**. Files exceeding this limit are skipped to prevent OOM (Out of Memory) errors during JSON parsing.
+
 ```mermaid
 graph LR
     subgraph "Ingestion & Storage"
         S[Synthea] -->|FHIR JSON| L[Local FS]
-        L -->|Airflow Sync| M[MinIO S3]
+        L -->|boto3 Direct Upload| M[MinIO S3]
+        M -->|Metadata & Reference| T[Trino SQL]
     end
-
+```
     subgraph "Lakehouse Architecture"
         M <--> I[Apache Iceberg]
         I <--> N[Nessie Catalog]
@@ -105,6 +108,28 @@ High-quality clinical data requires rigorous validation. This project implements
     - `not_null`: Critical clinical fields must be present.
     - `accepted_values`: Categorical data (gender, status) must match FHIR standards.
 - **CI/CD Integration:** Automated [GitHub Actions](.github/workflows/dbt_ci.yml) validate SQL syntax and model parsing on every Pull Request.
+
+---
+
+## 📊 Data Marts (Analytics Ready)
+
+The transformation layer produces several analytics-ready models in the `marts` directory:
+
+- **`core.dim_patients`**: A consolidated patient dimension table including calculated age, location, and encounter frequency.
+- **`clinical.fct_encounters`**: A fact table of clinical encounters with patient demographics and visit duration.
+- **`clinical.fct_vitals`**: A specialized fact table surfacing patient vitals and laboratory results for clinical analysis.
+
+---
+
+## 🔧 Scaling Ingestion
+
+If you need to ingest larger FHIR bundles or increase the volume per run, you must scale the infrastructure constraints:
+
+1. **Trino Query Length:** Increase `query.max-length` in `trino/config.properties` (value is in bytes).
+2. **Trino Memory:** 
+   - Increase `-Xmx` in `trino/jvm.config`.
+   - Increase the Docker `memory` limits and `reservations` for the `trino` service in `docker-compose.yml`.
+3. **Airflow DAG Constraints:** Update `MAX_FILES` and `MAX_FILE_SIZE_BYTES` in `airflow/dags/clinical_ingestion_incremental_dag.py`.
 
 ---
 

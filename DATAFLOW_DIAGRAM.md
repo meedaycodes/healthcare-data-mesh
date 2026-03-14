@@ -15,7 +15,7 @@ graph TB
     subgraph "Ingestion (Airflow)"
         B[Local Filesystem<br/>synthea_output/fhir/]
         C[Airflow DAG<br/>Incremental Ingestion]
-        D[Trino INSERT SQL<br/>Iceberg Connector]
+        D[Direct Upload (boto3)<br/>to MinIO]
     end
 
     subgraph "Storage & Catalog (Lakehouse)"
@@ -67,9 +67,10 @@ graph TB
 - **Orchestrator:** Apache Airflow
 - **Mechanism:** The `healthcare_ingestion_incremental` DAG scans the local filesystem for new JSON bundles.
 - **Processing:**
-    1. Validates JSON structure.
-    2. Uses Trino to insert data into the `iceberg.landing.fhir_bundles` table.
-    3. Moves processed files to a `processed/` directory to prevent duplicate ingestion.
+    1. **Direct Upload:** Uploads JSON files to MinIO using `boto3` for high-performance storage.
+    2. **Metadata Registration:** Uses Trino to insert record metadata into the `iceberg.landing.fhir_bundles` table.
+    3. **Volume Control:** Limits runs to **5 files** and skips files over **5MB** to ensure Trino stability. (See `README.md` for scaling these limits).
+    4. **Post-Process:** Moves processed files to a `processed/` directory.
 
 ### 3. Lakehouse Layer (Storage & Catalog)
 - **Storage:** MinIO (S3-compatible) stores the actual Parquet data files.
@@ -81,11 +82,10 @@ graph TB
 - **Logic:** 
     - **Extraction:** Parses the raw `data` column (JSON string) from the landing table.
     - **Flattening:** Converts complex FHIR nested objects into relational columns.
-    - **Models:**
-        - `stg_patients`: Demographic information.
-        - `stg_encounters`: Visit history.
-        - `stg_conditions`: Diagnoses and health states.
-        - `stg_observations`: Clinical measurements (vitals, labs).
+    - **Models (Marts):**
+        - `dim_patients`: Comprehensive patient profiles with demographics and encounter summaries.
+        - `fct_encounters`: Detailed visit history joined with patient metadata and duration metrics.
+        - `fct_vitals`: Clinical observations and measurements (vitals, labs) mapped to patients.
 - **Quality Control:** Every model includes schema tests (uniqueness, non-null, accepted values) to ensure data integrity.
 
 ### 5. Consumption Layer

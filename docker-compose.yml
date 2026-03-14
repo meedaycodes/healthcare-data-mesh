@@ -41,6 +41,14 @@ services:
       - "8080:8080"
     volumes:
       - ./trino/catalog:/etc/trino/catalog
+      - ./trino/config.properties:/etc/trino/config.properties
+      - ./trino/jvm.config:/etc/trino/jvm.config
+    deploy:
+      resources:
+        limits:
+          memory: 6G
+        reservations:
+          memory: 4G
     depends_on:
       nessie:
         condition: service_healthy

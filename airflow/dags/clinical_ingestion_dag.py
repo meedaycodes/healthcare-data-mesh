@@ -8,7 +8,7 @@ from trino.dbapi import connect
 
 def get_trino_connection():
     return connect(
-        host="healthcare_trino",
+        host="trino",
         port=8080,
         user="admin",
         catalog="iceberg",
