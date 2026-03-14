@@ -10,10 +10,15 @@ help:
 	@echo "  make ingest_incremental  - Incrementally load NEW patients into the Data Lake"
 	@echo "  make ingest_full         - Wipe and reload all raw patients into the Data Lake"
 	@echo ""
-	@echo "Transformation:"
-	@echo "  make dbt_build           - Run and test all dbt models"
-	@echo ""
-	@echo "Data Versioning (Nessie):"
+	Transformation:
+		@echo "  make dbt_build           - Run and test all dbt models"
+		@echo ""
+		@echo "Visualization:"
+		@echo "  make viz_up              - Start the Streamlit BI dashboard"
+		@echo "  make viz_down            - Stop the Streamlit BI dashboard"
+		@echo ""
+		@echo "Data Versioning (Nessie):"
+
 	@echo "  make nessie_branch       - Create a new branch (usage: make nessie_branch name=dev_clinical)"
 	@echo "  make nessie_list         - List all branches and commits"
 	@echo "  make nessie_merge        - Merge branch to main (usage: make nessie_merge name=dev_clinical)"
@@ -68,3 +73,13 @@ nessie_merge:
 # Composite Commands
 pipeline_incremental: generate ingest_incremental
 pipeline_full: generate ingest_full
+
+# Visualization
+viz_up:
+	@echo "Starting Streamlit BI dashboard..."
+	docker compose up -d streamlit
+	@echo "Dashboard is starting! Access it at http://localhost:8501"
+
+viz_down:
+	@echo "Stopping Streamlit BI dashboard..."
+	docker compose stop streamlit

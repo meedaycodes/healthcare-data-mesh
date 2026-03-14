@@ -1,7 +1,5 @@
 {{
   config(
-    materialized='incremental',
-    unique_key='allergy_id',
     tags=['staging', 'fhir', 'allergies']
   )
 }}
@@ -12,9 +10,6 @@ WITH fhir_raw AS (
     json_parse(data) AS bundle_json,
     ingestion_timestamp
   FROM {{ source('landing', 'fhir_bundles') }}
-  {% if is_incremental() %}
-  WHERE ingestion_timestamp > (SELECT MAX(ingestion_timestamp) FROM {{ this }})
-  {% endif %}
 ),
 
 allergy_entries AS (

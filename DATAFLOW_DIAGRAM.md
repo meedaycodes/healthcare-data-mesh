@@ -30,9 +30,10 @@ graph LR
         J[Data Quality Tests<br/>Validation]
     end
 
-    subgraph "Consumption"
+    subgraph "Consumption (BI & Analytics)"
         K[Analytics Tables<br/>Structured SQL]
-        L[BI / Trino UI<br/>SQL Queries]
+        L[Streamlit Dashboard<br/>Python Visualization]
+        M[Trino UI / CLI<br/>Ad-hoc Queries]
     end
 
     %% Data Flow
@@ -47,6 +48,7 @@ graph LR
     I -->|Validates| J
     J -->|Materializes| K
     K -->|Query| L
+    K -->|Query| M
 
     %% Styling
     style A fill:#e1f5fe,stroke:#01579b
@@ -54,6 +56,7 @@ graph LR
     style F fill:#e8f5e9,stroke:#1b5e20
     style H fill:#f3e5f5,stroke:#4a148c
     style C fill:#ffebee,stroke:#b71c1c
+    style L fill:#fff9c4,stroke:#fbc02d
 ```
 
 ## Detailed Component Breakdown
@@ -85,18 +88,24 @@ graph LR
     - **Models (Marts):**
         - `dim_patients`: Comprehensive patient profiles with demographics and encounter summaries.
         - `fct_encounters`: Detailed visit history joined with patient metadata and duration metrics.
+        - `fct_conditions`: Longitudinal history of patient diagnoses and health status.
+        - `fct_medications`: Medication requests, dosage intent, and prescribing history.
         - `fct_vitals`: Clinical observations and measurements (vitals, labs) mapped to patients.
 - **Quality Control:** Every model includes schema tests (uniqueness, non-null, accepted values) to ensure data integrity.
 
-### 5. Consumption Layer
-- **Engine:** Trino (formerly PrestoSQL) provides high-performance, distributed SQL queries.
-- **Access:** Users can query the flattened staging tables directly via the Trino CLI or Web UI, or connect BI tools (Tableau, Superset, etc.) for visualization.
+### 5. Consumption Layer (BI & Visualization)
+- **Engine:** Trino provides high-performance, distributed SQL queries.
+- **BI Tool:** **Streamlit** serves as the primary visualization layer, providing real-time dashboards for clinical and operational metrics.
+- **Access:** 
+    - **Interactive Dashboard:** Port 8501 for end-user analytics.
+    - **Ad-hoc SQL:** Trino CLI or Web UI for data scientists.
 
 ## Technical Specifications
 
 | Service | Port | Description |
 |---------|------|-------------|
 | **Trino** | 8080 | SQL Query Engine & Web UI |
+| **Streamlit** | 8501 | BI Visualization Dashboard |
 | **MinIO** | 9001 | S3 Storage Console |
 | **Airflow** | 8081 | DAG Orchestrator UI |
 | **Nessie** | 19120 | Data Catalog REST API |

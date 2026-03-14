@@ -39,3 +39,59 @@ models:
           - relationships:
               to: ref('dim_patients')
               field: patient_id
+
+  - name: fct_medications
+    description: "Medication requests and orders fact table"
+    columns:
+      - name: medication_request_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_patients')
+              field: patient_id
+
+  - name: fct_procedures
+    description: "Medical procedures fact table"
+    columns:
+      - name: procedure_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_patients')
+              field: patient_id
+
+  - name: fct_conditions
+    description: "Patient clinical conditions fact table"
+    columns:
+      - name: condition_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_patients')
+              field: patient_id
+
+  - name: fct_immunizations
+    description: "Patient immunization history fact table"
+    columns:
+      - name: immunization_id
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_patients')
+              field: patient_id

@@ -31,15 +31,13 @@ query-comment:
 
 models:
   healthcare_mesh:
-    # Default materialization for all models
-    +materialized: table
-
     # Staging models
     staging:
-      +materialized: incremental
-      +tags: ["staging", "daily"]
-
+      +materialized: table
+      +tags: ["staging"]
     # Marts (future - for business logic)
     marts:
-      +materialized: table
+      +materialized: incremental
+      +incremental_strategy: merge
+      +schema: gold
       +tags: ["marts", "production"]

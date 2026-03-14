@@ -1,7 +1,5 @@
 {{
   config(
-    materialized='incremental',
-    unique_key='medication_request_id',
     tags=['staging', 'fhir', 'medications']
   )
 }}
@@ -12,9 +10,6 @@ WITH fhir_raw AS (
     json_parse(data) AS bundle_json,
     ingestion_timestamp
   FROM {{ source('landing', 'fhir_bundles') }}
-  {% if is_incremental() %}
-  WHERE ingestion_timestamp > (SELECT MAX(ingestion_timestamp) FROM {{ this }})
-  {% endif %}
 ),
 
 medication_request_entries AS (

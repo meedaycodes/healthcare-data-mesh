@@ -15,6 +15,7 @@ In traditional healthcare data environments, data often resides in silos or brit
 - **Git-for-Data:** Leveraging **Project Nessie** for metadata versioning, enabling branching, merging, and isolation of data changes.
 - **Open Standards:** Built on **Apache Iceberg** for high-performance table management and **HL7 FHIR R4** for clinical data interoperability.
 - **Unified Compute:** **Trino** serves as the distributed SQL engine, providing a single interface for ingestion, transformation, and analytics.
+- **Actionable Insights:** Integrated **Streamlit** BI layer for real-time visualization of clinical and operational KPIs.
 
 ---
 
@@ -28,6 +29,7 @@ In traditional healthcare data environments, data often resides in silos or brit
 | **Catalog / Versioning** | [Project Nessie](https://projectnessie.org/) | Metadata versioning with Git-like semantics. |
 | **Compute Engine** | [Trino](https://trino.io/) | Distributed SQL for massive datasets. |
 | **Transformation** | [dbt-trino](https://github.com/starburstdata/dbt-trino) | SQL-based ELT with testing and documentation. |
+| **Visualization (BI)** | [Streamlit](https://streamlit.io/) | Interactive dashboards for clinical analytics. |
 | **Orchestration** | [Apache Airflow](https://airflow.apache.org/) | Workflow management and ingestion pipelines. |
 
 ---
@@ -55,7 +57,7 @@ For a detailed visual representation of the data flow and component interactions
 git clone https://github.com/meedaycodes/healthcare-data-mesh.git
 cd healthcare-data-mesh
 
-# Initialize all services (MinIO, Nessie, Trino, Airflow, Postgres)
+# Initialize all services (MinIO, Nessie, Trino, Airflow, Postgres, Streamlit)
 docker compose up -d
 
 # Verify connectivity (Trino CLI)
@@ -72,6 +74,9 @@ make ingest_incremental
 
 # Build and test dbt transformation models
 make dbt_build
+
+# Launch the BI Dashboard
+make viz_up
 ```
 
 ---
@@ -95,6 +100,8 @@ The transformation layer produces several analytics-ready models in the `marts` 
 
 - **`core.dim_patients`**: A consolidated patient dimension table including calculated age, location, and encounter frequency.
 - **`clinical.fct_encounters`**: A fact table of clinical encounters with patient demographics and visit duration.
+- **`clinical.fct_conditions`**: Longitudinal history of diagnoses and health status.
+- **`clinical.fct_medications`**: Detailed prescribing history and medication intent.
 - **`clinical.fct_vitals`**: A specialized fact table surfacing patient vitals and laboratory results for clinical analysis.
 
 ---
@@ -132,6 +139,7 @@ curl -X POST http://localhost:19120/api/v2/trees/branch/dev_clinical_v2 \
 
 - `airflow/dags/`: Orchestration logic for incremental and full ingestions.
 - `dbt_project/`: The core transformation logic (SQL models, tests, sources).
+- `viz/`: Streamlit dashboard application and visualization logic.
 - `scripts/`: Python-based utilities for direct MinIO/Trino interaction.
 - `synthea_output/`: Local staging for generated patient records.
 - `trino/catalog/`: Catalog configurations defining Iceberg/Nessie connections.

@@ -173,3 +173,25 @@ services:
       - ./synthea_output:/app/output
     networks:
       - healthcare_mesh_net
+
+  # --- 9. BI Layer (Streamlit) ---
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    container_name: healthcare_viz
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./viz:/app
+    environment:
+      - TRINO_HOST=trino
+      - TRINO_PORT=8080
+      - TRINO_USER=admin
+      - TRINO_CATALOG=iceberg
+      - TRINO_SCHEMA=landing_gold
+    depends_on:
+      trino:
+        condition: service_healthy
+    networks:
+      - healthcare_mesh_net

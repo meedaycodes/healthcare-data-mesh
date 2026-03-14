@@ -1,12 +1,15 @@
 {{
   config(
-    materialized='table',
+    unique_key='patient_id',
     tags=['marts', 'core', 'patients']
   )
 }}
 
 WITH patients AS (
     SELECT * FROM {{ ref('stg_patients') }}
+    {% if is_incremental() %}
+    WHERE ingested_at > (SELECT MAX(ingested_at) FROM {{ this }})
+    {% endif %}
 ),
 
 encounters AS (
