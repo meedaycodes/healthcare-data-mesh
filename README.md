@@ -52,7 +52,7 @@ For a detailed visual representation of the data flow and component interactions
 ### 2. Infrastructure Setup
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/healthcare-data-mesh.git
+git clone https://github.com/meedaycodes/healthcare-data-mesh.git
 cd healthcare-data-mesh
 
 # Initialize all services (MinIO, Nessie, Trino, Airflow, Postgres)
